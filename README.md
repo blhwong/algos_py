@@ -67,3 +67,13 @@ https://stackoverflow.com/questions/22190064/difference-between-find-and-index
 Not sure if this is correct. Added `PYTHONPATH=.` in profile. Then you can use absolute imports from the file.
 
 `from data_structures.list_node import ListNode`
+
+## Functions
+
+You can pass lists or tuples into functions by setting the variable and using *
+
+```python
+args = (1, 2, 3)
+
+my_func(*args)
+```

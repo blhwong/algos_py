@@ -10,8 +10,8 @@ class Solution:
             if nums[mid] == target:
                 return mid
 
-            left_side = (left, mid - 1)
-            right_side = (mid + 1, right)
+            left_side = left, mid - 1
+            right_side = mid + 1, right
 
             if nums[mid] < target:
                 if target < nums[right]:

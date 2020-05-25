@@ -17,14 +17,23 @@ Using list comprehension
 ```
 
 
-## enumerate
+## Enumerate
 
 https://stackoverflow.com/questions/24150762/pythonic-range-vs-enumerate-in-python-for-loop
 
+2nd position argument is the start enumeration but it does not slice the list
+
 ```python
-for idx, val in enumerate(a):
+for idx, val in enumerate(a, 0):
     print idx, val
 ```
+
+## Range
+
+Use if you need list to be sliced
+
+range(start, stop, step)
+
 
 ## Difference between str.find and str.index
 Use find since index returns an exception when not found

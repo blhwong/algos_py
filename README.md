@@ -34,6 +34,7 @@ Use if you need list to be sliced
 
 range(start, stop, step)
 
+Stop arg is non-inclusive
 
 ## Difference between str.find and str.index
 Use find since index returns an exception when not found

@@ -13,19 +13,19 @@ class Solution:
             def __init__(self, row, col):
                 self.row = row
                 self.col = col
-                p = [str(i) for i in range(1, 10)]
+                p = {f'{i}': True for i in range(1, 10)}
                 for i in range(9):
                     curr = board[i][col]
                     if curr == '.':
                         continue
                     if curr in p:
-                        p.remove(board[i][col])
+                        del p[board[i][col]]
                 for j in range(9):
                     curr = board[row][j]
                     if board == '.':
                         continue
                     if curr in p:
-                        p.remove(board[row][j])
+                        del p[board[row][j]]
                 start_row = (row // 3) * 3
                 start_col = (col // 3) * 3
                 for i in range(start_row, start_row + 3):
@@ -34,30 +34,25 @@ class Solution:
                         if curr == '.':
                             continue
                         if curr in p:
-                            p.remove(board[i][j])
-                self.encoded = ','.join(p)
+                            del p[board[i][j]]
+                self.choices = p
 
             def remove(self, val):
-                decoded = self.decode()
-                if val in decoded:
+                choices = self.choices
+                if val in choices.keys():
                     # print('removing', val)
-                    decoded.remove(val)
-                    self.encoded = ','.join(decoded)
-
-            def decode(self):
-                return self.encoded.split(',')
+                    del choices[val]
+                    self.choices = choices
 
             def add(self, val):
-                decoded = self.decode()
-                if val not in decoded:
-                    decoded.append(val)
-                    decoded.sort()
-                    self.encoded = ','.join(decoded)
-                    # print('added back', self.encoded, decoded)
+                choices = self.choices
+                if val not in choices.keys():
+                    choices[val] = True
+                    self.choices = choices
 
             def copy(self):
                 p = Possibilities(self.row, self.col)
-                p.encoded = self.encoded
+                p.choices = {f'{i}': True for i in self.choices.keys()}
                 return p
 
 
@@ -106,9 +101,9 @@ class Solution:
 
             def add(self, p):
                 row, col = p.row, p.col
-                if len(p.encoded) == 1:
+                if len(p.choices) == 1:
                     # print('only 1 possibility')
-                    self.set_board(row, col, p.encoded)
+                    self.set_board(row, col, list(p.choices.keys())[0])
                 else:
                     # print(row, col)
                     self.unknown += 1
@@ -123,17 +118,15 @@ class Solution:
                     if p:
                         # print('row', p)
                         p.remove(val)
-                        if len(p.encoded) == 1:
-                            # print('1 left after fixing row', p.encoded)
-                            self.set_board(i, col, p.encoded)
+                        if len(p.choices) == 1:
+                            self.set_board(i, col, list(p.choices.keys())[0])
                 for j in range(9):
                     p = self.get_p(row, j)
                     if p:
                         # print('col', p)
                         p.remove(val)
-                        if len(p.encoded) == 1:
-                            # print('1 left after fixing col', p.encoded)
-                            self.set_board(row, j, p.encoded)
+                        if len(p.choices) == 1:
+                            self.set_board(row, j, list(p.choices.keys())[0])
                 start_row = (row // 3) * 3
                 start_col = (col // 3) * 3
                 for i in range(start_row, start_row + 3):
@@ -142,9 +135,8 @@ class Solution:
                         if p:
                             # print('curr', p)
                             p.remove(val)
-                            if len(p.encoded) == 1:
-                                # print('1 left after fixing square', p.encoded)
-                                self.set_board(i, j, p.encoded)
+                            if len(p.choices) == 1:
+                                self.set_board(i, j, list(p.choices.keys())[0])
 
         t = Tracker()
         for row in range(9):
@@ -221,7 +213,7 @@ class Solution:
             for row in t.storage.keys():
                 for col in t.storage[row].keys():
                     p = t.storage[row][col]
-                    choices = p.decode()
+                    choices = p.choices
                     # print(choices, row, col)
                     for choice in choices:
                         # print('choice', choice)

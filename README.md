@@ -36,6 +36,26 @@ range(start, stop, step)
 
 Stop arg is non-inclusive
 
+Use `.reversed()` to iterate backwards
+
+```python
+arr = [1, 2, 3, 4, 5]
+for idx in reversed(range(len(arr))):
+    print(f'reversed {idx}: {arr[idx]}')
+
+for idx in range(len(arr) - 1, -1, -1):
+    print(f'step back {idx}: {arr[idx]}')
+
+for idx, val in reversed(list(enumerate(arr))):
+    print(f'enumerate {idx}: {val}')
+```
+
+Above produces the same result
+- You need to use list for enumerate
+- You need to subtract 1 from the stop value since stop is non-inclusive
+- reversed + range seems to be cleanest
+
+
 ## Difference between str.find and str.index
 Use find since index returns an exception when not found
 

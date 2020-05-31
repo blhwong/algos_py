@@ -32,7 +32,7 @@ for idx, val in enumerate(a, 0):
 
 Use if you need list to be sliced
 
-range(start, stop, step)
+`range(start, stop, step)`
 
 Stop arg is non-inclusive
 
@@ -61,7 +61,7 @@ Use find since index returns an exception when not found
 
 https://stackoverflow.com/questions/22190064/difference-between-find-and-index
 
-.find(value, start, end)
+`.find(value, start, end)`
 
 ## Strings
 
@@ -83,6 +83,9 @@ https://stackoverflow.com/questions/22190064/difference-between-find-and-index
 `sorted(nums)` will return a new list
 
 ## Sets
+
+`.remove` will throw exception if doesn't exist
+`.discard` will remove from set regardless if in set
 
 ### Cannot add list to sets. Use tuples. Coerce list to tuple by using
 `tuple([1, 2, 3])`

@@ -1,20 +1,19 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        tracker = {}
+        memo = [[None] * n for _ in range(m)]
         def move(m_left, n_left, trail):
-            key = f'{m_left},{n_left}'
-            if key in tracker:
-                return tracker[key]
+            if memo[m_left][n_left]:
+                return memo[m_left][n_left]
             if m_left == 0 and n_left == 0:
                 return 1
             if m_left < 0 or n_left < 0:
                 return 0
-            tracker[key] = (
+            memo[m_left][n_left] = (
                 move(m_left - 1, n_left, trail + 'R') +
                 move(m_left, n_left - 1, trail + 'D')
             )
-            return tracker[key]
+            return memo[m_left][n_left]
 
 
-        return move(m - 1, n - 1, '')
-
+        res = move(m - 1, n - 1, '')
+        return res

@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from list_node import ListNode
+from leet.data_structures.list_node import ListNode
 
 class TestSuite(TestCase):
     def test_compare_false(self):

@@ -99,7 +99,7 @@ https://stackoverflow.com/questions/22190064/difference-between-find-and-index
 
 Not sure if this is correct. Added `PYTHONPATH=.` in profile. Then you can use absolute imports from the file.
 
-`from leet.leet.data_structures.list_node import ListNode`
+`from leet.data_structures.list_node import ListNode`
 
 ## Functions
 

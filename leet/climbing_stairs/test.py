@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import Solution
+from leet.climbing_stairs.main import Solution
 
 s = Solution()
 

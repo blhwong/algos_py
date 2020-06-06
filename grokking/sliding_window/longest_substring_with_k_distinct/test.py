@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import longest_substring_with_k_distinct
+from grokking.sliding_window.longest_substring_with_k_distinct.main import longest_substring_with_k_distinct
 
 
 class TestSuite(TestCase):

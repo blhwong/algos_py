@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import Solution
+from leet.longest_palindromic_substring.main import Solution
 
 s = Solution()
 

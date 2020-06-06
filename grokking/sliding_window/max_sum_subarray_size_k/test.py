@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import max_sub_array_of_size_k
+from grokking.sliding_window.max_sum_subarray_size_k.main import max_sub_array_of_size_k
 
 class TestSuite(TestCase):
     def test_1(self):

@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import Solution
+from leet.combination_sum.main import Solution
 
 s = Solution()
 

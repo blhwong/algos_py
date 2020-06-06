@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import fib
+from leet.fib.main import fib
 
 class TestSuite(TestCase):
     def test_1(self):

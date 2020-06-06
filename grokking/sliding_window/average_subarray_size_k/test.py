@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import average_subarray_size_k
+from grokking.sliding_window.average_subarray_size_k.main import average_subarray_size_k
 
 
 class TestSuite(TestCase):

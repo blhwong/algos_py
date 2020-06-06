@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import Solution
+from leet.search_rotated_array.main import Solution
 
 s = Solution()
 

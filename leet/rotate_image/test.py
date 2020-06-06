@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import Solution
+from leet.rotate_image.main import Solution
 
 s = Solution()
 

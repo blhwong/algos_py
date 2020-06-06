@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import smallest_subarray_with_given_sum
+from grokking.sliding_window.smallest_subarray_with_given_sum.main import smallest_subarray_with_given_sum
 
 
 class TestSuite(TestCase):

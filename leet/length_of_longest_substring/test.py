@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import Solution
+from leet.length_of_longest_substring.main import Solution
 
 s = Solution()
 

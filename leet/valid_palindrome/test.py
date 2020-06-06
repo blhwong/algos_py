@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import Solution
+from leet.valid_palindrome.main import Solution
 
 s = Solution()
 

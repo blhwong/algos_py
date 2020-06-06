@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from main import Solution
+from leet.unique_paths.main import Solution
 
 s = Solution()
 

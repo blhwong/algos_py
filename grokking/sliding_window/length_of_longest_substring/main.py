@@ -17,12 +17,6 @@ Example 3:
 Input: String = "abccde", k = 1
 Output: 3
 Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating substring "ccc".
-
-
-aaaa
-bbb
-cccc
-
 """
 
 

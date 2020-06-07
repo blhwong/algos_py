@@ -21,12 +21,9 @@ def smallest_subarray_with_given_sum(s, arr):
 
     for end in range(len(arr)):
         running_sum += arr[end]
-        if running_sum >= s:
+        while running_sum >= s:
             ans = min(ans, end - start + 1)
-            while running_sum > s:
-                running_sum -= arr[start]
-                start += 1
-                if running_sum >= s:
-                    ans = min(ans, end - start + 1)
+            running_sum -= arr[start]
+            start += 1
 
     return ans if ans != float('infinity') else 0

@@ -10,5 +10,8 @@ class TestSuite(TestCase):
         self.assertCountEqual(make_squares([-3, -1, 0, 1, 2]), [0, 1, 1, 4, 9])
 
 
+    def test_3(self):
+        self.assertCountEqual(make_squares([-4, -3, -1, 0, 1, 2]), [0, 1, 1, 4, 9, 16])
+
 if __name__ == '__main__':
     main()

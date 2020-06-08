@@ -110,3 +110,9 @@ args = (1, 2, 3)
 
 my_func(*args)
 ```
+
+## Collections
+
+deque (double ended queue)
+- Has methods like appendleft and popleft
+- Is O(1) whereas insert(0, el) is O(n)

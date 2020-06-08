@@ -16,7 +16,6 @@ Explanation: The first two elements after removing the duplicates will be [2, 11
 
 def remove_duplicates(arr):
     left = 1
-    right = 1
 
     for right in range(len(arr)):
         if arr[left - 1] != arr[right]:

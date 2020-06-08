@@ -24,10 +24,10 @@ def find_subarrays(arr, target):
             product /= arr[left]
             left += 1
 
-        tst = []
+        tmp = []
 
         for i in range(right, left - 1, -1):
-            tst.insert(0, arr[i])
-            result.append(list(tst))
+            tmp.insert(0, arr[i])
+            result.append(list(tmp))
 
     return result

@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from grokking.two_pointers.triple_sum_to_zero.main import search_triplets
+from grokking.two_pointers.triplet_sum_to_zero.main import search_triplets
 
 
 class TestSuite(TestCase):

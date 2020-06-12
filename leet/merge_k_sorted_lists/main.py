@@ -1,5 +1,5 @@
 from typing import List
-from leet.data_structures.list_node import ListNode
+from data_structures.list_node import ListNode
 
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:

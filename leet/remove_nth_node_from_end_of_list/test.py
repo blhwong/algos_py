@@ -1,7 +1,7 @@
 from unittest import TestCase, main
 from leet.remove_nth_node_from_end_of_list.main import Solution
 
-from leet.data_structures.list_node import ListNode
+from data_structures.list_node import ListNode
 
 
 s = Solution()

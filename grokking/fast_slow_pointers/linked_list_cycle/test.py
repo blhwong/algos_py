@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 from grokking.fast_slow_pointers.linked_list_cycle.main import has_cycle
-from leet.data_structures.list_node import ListNode as Node
+from data_structures.list_node import ListNode as Node
 
 
 class TestSuite(TestCase):

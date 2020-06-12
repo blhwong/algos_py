@@ -19,7 +19,8 @@ class TestSuite(TestCase):
         head.next.next.next = Node(4)
         head.next.next.next.next = Node(5)
         head.next.next.next.next.next = Node(6)
-        self.assertTrue(find_middle_of_linked_list(head) == head.next.next.next)
+        self.assertTrue(find_middle_of_linked_list(head)
+                        == head.next.next.next)
 
     def test_3(self):
         head = Node(1)
@@ -29,7 +30,8 @@ class TestSuite(TestCase):
         head.next.next.next.next = Node(5)
         head.next.next.next.next.next = Node(6)
         head.next.next.next.next.next.next = Node(7)
-        self.assertTrue(find_middle_of_linked_list(head) == head.next.next.next)
+        self.assertTrue(find_middle_of_linked_list(head)
+                        == head.next.next.next)
 
 
 if __name__ == '__main__':

@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 from leet.merge_k_sorted_lists.main import Solution
-from leet.data_structures.list_node import ListNode
+from data_structures.list_node import ListNode
 
 s = Solution()
 

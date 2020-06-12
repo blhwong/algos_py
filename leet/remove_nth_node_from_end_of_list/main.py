@@ -1,4 +1,4 @@
-from leet.data_structures.list_node import ListNode
+from data_structures.list_node import ListNode
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:

@@ -116,3 +116,7 @@ my_func(*args)
 deque (double ended queue)
 - Has methods like appendleft and popleft
 - Is O(1) whereas insert(0, el) is O(n)
+
+## Classes
+
+Use `@staticmethod` if needed

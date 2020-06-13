@@ -27,7 +27,8 @@ def cyclic_sort(nums):
     while i < len(nums):
         curr = nums[i]
         j = nums[i] - 1
-        swap(i, j)
-        if nums[i] - 1 == i:
+        if nums[i] != nums[j]:
+            swap(i, j)
+        else:
             i += 1
 

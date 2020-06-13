@@ -14,6 +14,7 @@ class ListNode:
 
         return "->".join(storage)
 
+    @staticmethod
     def compare(list1, list2):
         l1 = []
         l2 = []

@@ -31,8 +31,11 @@ def reverse_sub_list(head, p, q):
 
     after_q = node_q.next
     node_q.next = None
-    rev = reverse(before_p.next)
-    before_p.next = rev
+    rev = reverse(before_p.next if before_p else head)
+    if before_p:
+        before_p.next = rev
+    else:
+        head = rev
 
     curr = head
     while curr.next:

@@ -15,5 +15,16 @@ class TestSuite(TestCase):
         self.assertTrue(Node.compare(result, expected))
 
 
+    def test_2(self):
+        head = Node(1)
+        head.next = Node(2)
+        head.next.next = Node(3)
+        head.next.next.next = Node(4)
+        head.next.next.next.next = Node(5)
+        result = reverse_sub_list(head, 1, 3)
+        expected = Node(3, Node(2, Node(1, Node(4, Node(5)))))
+        self.assertTrue(Node.compare(result, expected))
+
+
 if __name__ == '__main__':
     main()

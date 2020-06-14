@@ -14,6 +14,8 @@ Output: [8], [2], [8, 2], [6], [2, 6], [5], [6, 5]
 Explanation: There are seven contiguous subarrays whose product is less than the target.
 """
 
+from collections import deque
+
 def find_subarrays(arr, target):
     result = []
     left = 0
@@ -24,10 +26,10 @@ def find_subarrays(arr, target):
             product /= arr[left]
             left += 1
 
-        tmp = []
+        tmp = deque()
 
         for i in range(right, left - 1, -1):
-            tmp.insert(0, arr[i])
+            tmp.appendleft(arr[i])
             result.append(list(tmp))
 
     return result

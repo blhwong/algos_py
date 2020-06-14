@@ -12,8 +12,7 @@ def traverse(root):
 
     while q:
         curr_level = []
-        curr_len = len(q)
-        for _ in range(curr_len):
+        for _ in range(len(q)):
             curr = q.popleft()
             curr_level.append(curr.val)
             if curr.left:

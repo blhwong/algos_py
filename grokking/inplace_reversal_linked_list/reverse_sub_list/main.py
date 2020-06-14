@@ -5,44 +5,30 @@ Given the head of a LinkedList and two positions ‘p’ and ‘q’, reverse th
 
 
 def reverse_sub_list(head, p, q):
-    def reverse(h):
-        prev = None
-        curr = h
-        while curr:
-            tmp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = tmp
-
-        return prev
-
     curr = head
     prev = None
     before_p = None
-    node_q = None
-    count = 0
-    while curr:
-        if count == p - 1:
-            before_p = prev
-        elif count == q - 1:
-            node_q = curr
-        count += 1
+    i = 0
+    while curr and i < p - 1:
+        i += 1
         prev = curr
         curr = curr.next
 
+    before_p = prev
+    q_node = curr   # the current node is the last node in sublist after reversing
 
-    after_q = node_q.next
-    node_q.next = None
-    rev = reverse(before_p.next if before_p else head)
+    while curr and i < q:
+        tmp = curr.next
+        curr.next = prev
+        prev = curr
+        curr = tmp
+        i += 1
+
     if before_p:
-        before_p.next = rev
+        before_p.next = prev
     else:
-        head = rev
+        head = prev
 
-    curr = head
-    while curr.next:
-        curr = curr.next
-
-    curr.next = after_q
+    q_node.next = curr
 
     return head

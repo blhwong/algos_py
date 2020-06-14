@@ -20,11 +20,13 @@ def reverse_sub_list(head, p, q):
     prev = None
     before_p = None
     node_q = None
+    count = 0
     while curr:
-        if curr.val == p:
+        if count == p - 1:
             before_p = prev
-        elif curr.val == q:
+        elif count == q - 1:
             node_q = curr
+        count += 1
         prev = curr
         curr = curr.next
 

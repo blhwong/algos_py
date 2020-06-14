@@ -31,8 +31,5 @@ class TestSuite(TestCase):
         self.assertEqual(find_minimum_depth(root), 3)
 
 
-
-
-
 if __name__ == '__main__':
     main()

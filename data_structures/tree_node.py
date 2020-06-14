@@ -3,7 +3,7 @@ from collections import deque
 class TreeNode:
     def __init__(self, val):
         self.val = val
-        self.left, self.right = None, None
+        self.left, self.right, self.next = None, None, None
 
     def __repr__(self):
         storage = []

@@ -13,6 +13,9 @@ class TestSuite(TestCase):
     def test_3(self):
         self.assertEqual(triplet_sum_close_to_target([1, 0, 1, 1], 100), 3)
 
+    def test_4(self):
+        self.assertEqual(triplet_sum_close_to_target([1, 0, 1, 1, 199, -1, -1], 100), 3)
+
 
 if __name__ == '__main__':
     main()

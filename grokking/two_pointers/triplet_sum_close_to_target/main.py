@@ -34,8 +34,8 @@ def triplet_sum_close_to_target(arr, target_sum):
             if diff == 0:
                 return 0
 
-            if abs(diff) < abs(min_diff) or (abs(diff) == abs(min_diff) and diff > min_diff):
-                min_diff = diff
+            if abs(diff) <= abs(min_diff):
+                min_diff = abs(diff)
 
             if diff > 0:
                 left += 1
@@ -44,5 +44,3 @@ def triplet_sum_close_to_target(arr, target_sum):
 
 
     return target_sum - min_diff
-
-

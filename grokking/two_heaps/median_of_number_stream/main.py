@@ -42,7 +42,7 @@ class MedianOfAStream:
         else:
             m = self.min_heap[0]
             if num < m:
-                heappush(self.max_heap, num * -1)
+                heappush(self.max_heap, -num)
             else:
                 heappush(self.max_heap, -heappop(self.min_heap))
                 heappush(self.min_heap, num)

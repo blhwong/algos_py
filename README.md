@@ -68,8 +68,20 @@ https://stackoverflow.com/questions/22190064/difference-between-find-and-index
 ### Determine if string is alphanumeric
 `str.isalnum()`
 
+### Determine if string is alpha
+`str.isalpha()`
+
 ### str.split(' ') must contain a character. Otherwise use list(str)
 
+### Python does not have a way to change case to an index from a string.
+
+Change to list, swap, and change back to string.
+
+```python
+arr = list(strings[i])
+arr[i] = arr[i].swapcase()
+new_string = ''.join(arr)
+```
 
 ## Testing
 

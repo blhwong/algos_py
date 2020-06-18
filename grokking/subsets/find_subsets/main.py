@@ -17,8 +17,7 @@ def find_subsets(nums):
     subsets = []
     subsets.append([])
     for curr in nums:
-        n = len(subsets)
-        for i in range(n):
+        for i in range(len(subsets)):
             subsets.append(subsets[i] + [curr])
 
     return subsets

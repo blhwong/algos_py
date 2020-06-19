@@ -28,43 +28,46 @@ Explanation: The smallest number greater than or equal to '-1' is '4' having ind
 
 
 def search_ceiling_of_a_number(arr, key):
-    def search(low, high, m, closest):
-        if high < low:
-            return closest
+    low, high = 0, len(arr) - 1
+    diff = float('inf')
+    closest = -1
 
-        mid = high - low // 2
+    while low <= high:
+        mid = (low + high) // 2
 
-        if 0 < arr[mid] - key < m:
-            m = arr[mid] - key
+        compare = arr[mid] - key
+        if 0 < compare < diff:
             closest = mid
+            diff = compare
 
         if arr[mid] == key:
             return mid
+        elif arr[mid] < key:
+            low = mid + 1
+        else:
+            high = mid - 1
 
-        if arr[mid] < key:
-            return search(mid + 1, high, m, closest)
+    return closest
 
-        return search(low, mid - 1, m, closest)
-
-    return search(0, len(arr) - 1, float('inf'), -1)
 
 def search_floor_of_a_number(arr, key):
-    def search(low, high, m, closest):
-        if high < low:
-            return closest
+    low, high = 0, len(arr) - 1
+    diff = float('inf')
+    closest = -1
 
-        mid = high - low // 2
+    while low <= high:
+        mid = (low + high) // 2
 
-        if 0 < key - arr[mid] < m:
-            m = key - arr[mid]
+        compare = key - arr[mid]
+        if 0 < compare < diff:
             closest = mid
+            diff = compare
 
         if arr[mid] == key:
             return mid
+        elif arr[mid] < key:
+            low = mid + 1
+        else:
+            high = mid - 1
 
-        if arr[mid] < key:
-            return search(mid + 1, high, m, closest)
-
-        return search(low, mid - 1, m, closest)
-
-    return search(0, len(arr) - 1, float('inf'), -1)
+    return closest

@@ -47,3 +47,24 @@ def search_ceiling_of_a_number(arr, key):
         return search(low, mid - 1, m, closest)
 
     return search(0, len(arr) - 1, float('inf'), -1)
+
+def search_floor_of_a_number(arr, key):
+    def search(low, high, m, closest):
+        if high < low:
+            return closest
+
+        mid = high - low // 2
+
+        if 0 < key - arr[mid] < m:
+            m = key - arr[mid]
+            closest = mid
+
+        if arr[mid] == key:
+            return mid
+
+        if arr[mid] < key:
+            return search(mid + 1, high, m, closest)
+
+        return search(low, mid - 1, m, closest)
+
+    return search(0, len(arr) - 1, float('inf'), -1)

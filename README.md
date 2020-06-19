@@ -75,6 +75,12 @@ https://stackoverflow.com/questions/22190064/difference-between-find-and-index
 
 ### Python does not have a way to change case to an index from a string.
 
+### Use ord to compare chars
+```python
+ord(char1) < ord(char2)
+ord(char1) - ord(char2)
+```
+
 Change to list, swap, and change back to string.
 
 ```python

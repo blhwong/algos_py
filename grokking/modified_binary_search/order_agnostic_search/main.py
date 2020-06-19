@@ -24,18 +24,24 @@ Output: 2
 
 
 def binary_search(arr, key):
-    def search(low, high):
-        if high < low:
-            return -1
+    low, high = 0, len(arr) - 1
 
-        mid = high - low // 2
+    while low <= high:
+        mid = (low + high) // 2
 
         if arr[mid] == key:
             return mid
-        if arr[mid] < key and key <= arr[high]:
-            return search(mid + 1, high)
 
-        return search(low, mid - 1)
+        if arr[low] < arr[high]:
+            if arr[mid] < key:
+                low = mid + 1
+            else:
+                high = mid - 1
+        else:
+            if arr[mid] > key:
+                low = mid + 1
+            else:
+                high = mid - 1
 
+    return -1
 
-    return search(0, len(arr) - 1)

@@ -30,23 +30,23 @@ Explanation: As the array is assumed to be circular, the smallest letter greater
 
 
 def search_next_letter(letters, key):
-    def search(low, high, m, closest):
-        if high < low:
-            return letters[(closest + 1) % len(letters)]
+    low, high = 0, len(letters) - 1
+    diff = float('inf')
+    closest = -1
 
-        mid = high + low // 2
+    while low <= high:
+        mid = (low + high) // 2
 
         compare = ord(key) - ord(letters[mid])
-        if 0 < compare < m:
-            m = compare
+        if 0 < compare < diff:
+            diff = compare
             closest = mid
 
         if letters[mid] == key:
             return letters[(mid + 1) % len(letters)]
+        elif letters[mid] < key:
+            low = mid + 1
+        else:
+            high = mid - 1
 
-        if letters[mid] < key:
-            return search(mid + 1, high, m, closest)
-
-        return search(low, mid - 1, m, closest)
-
-    return search(0, len(letters) - 1, float('inf'), -1)
+    return letters[(closest + 1) % len(letters)]

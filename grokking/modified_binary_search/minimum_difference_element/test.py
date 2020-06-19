@@ -15,6 +15,9 @@ class TestSuite(TestCase):
     def test_4(self):
         self.assertEqual(search_min_diff_element([4, 6, 10], 17), 10)
 
+    def test_5(self):
+        self.assertEqual(search_min_diff_element([4, 6, 10], 0), 4)
+
 
 if __name__ == '__main__':
     main()

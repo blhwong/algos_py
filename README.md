@@ -147,4 +147,4 @@ max_heap is a min_heap with negative values
 
 ## Bits
 
-Use `bin(num)` to convert to binary
+Use `bin(num)` to get binary representation

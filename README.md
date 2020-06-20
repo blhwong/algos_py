@@ -145,6 +145,8 @@ You can push tuples into heaps. The first tuple will be the one sorted. There's 
 
 max_heap is a min_heap with negative values
 
+If you are inserting a tuple, and there are ties, consider entering an additional entry_count so that you have `(priority, entry_count, task)`. If you have a ListNode as a task, it will fail if there are ties
+
 ## Bits
 
 Use `bin(num)` to get binary representation

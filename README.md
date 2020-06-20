@@ -144,3 +144,7 @@ Use `@staticmethod` if needed
 You can push tuples into heaps. The first tuple will be the one sorted. There's no default order if they are equal in priority
 
 max_heap is a min_heap with negative values
+
+## Bits
+
+Use `bin(num)` to convert to binary

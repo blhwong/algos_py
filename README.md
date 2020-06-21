@@ -16,6 +16,9 @@ Using list comprehension
 [[0] * n for _ in range(m)]
 ```
 
+## Arrays
+
+Python allows negative indexing. -1 will give you last element of the array
 
 ## Enumerate
 

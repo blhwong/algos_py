@@ -46,12 +46,15 @@ def solve_knapsack_recursive(profits, weights, capacity):
 
 
 def solve_knapsack_iterative(profits, weights, capacity):
-    dp = [[-1] * (capacity + 1) for _ in range(len(profits))]
+    dp = [[0] * (capacity + 1) for _ in range(len(profits))]
 
-    for i in range(len(profits)):
-        for c in range(capacity + 1):
+    for c in range(capacity + 1):
+        if weights[0] <= c:
+            dp[0][c] = 1
+
+    for i in range(1, len(profits)):
+        for c in range(1, capacity + 1):
             profit1, profit2 = 0, 0
-
             if weights[i] <= c:
                 profit1 = profits[i] + dp[i - 1][c - weights[i]]
 
@@ -59,4 +62,4 @@ def solve_knapsack_iterative(profits, weights, capacity):
 
             dp[i][c] = max(profit1, profit2)
 
-    return dp[len(profits) - 1][capacity]
+    return dp[-1][capacity]

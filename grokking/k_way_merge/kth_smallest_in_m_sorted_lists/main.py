@@ -26,9 +26,7 @@ def find_Kth_smallest(lists, k):
 
     ans = -1
     count = 0
-    while min_heap:
-        if count == k:
-            break
+    while min_heap and count < k:
         val, idx, l = heappop(min_heap)
         ans = val
         next_idx = idx + 1

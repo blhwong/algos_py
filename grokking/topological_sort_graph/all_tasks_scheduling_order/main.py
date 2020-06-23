@@ -33,22 +33,20 @@ Output:
 13) [1, 3, 2, 0, 4, 5]
 """
 
-from collections import deque
-
 def get_order(results, curr_order, curr_source, adjacency_list, curr_degree_list):
     if not curr_source:
         results.append(curr_order)
     for v in curr_source:
         new_order = curr_order.copy()
         new_order.append(v)
-        next_source = deque(curr_source)
+        next_source = curr_source.copy()
         next_source.remove(v)
         new_degree_list = curr_degree_list.copy()
 
         for child in adjacency_list[v]:
             new_degree_list[child] -= 1
             if new_degree_list[child] == 0:
-                next_source.append(child)
+                next_source.add(child)
 
         get_order(results, new_order, next_source, adjacency_list, new_degree_list)
 
@@ -61,11 +59,11 @@ def get_all_orders(tasks, prerequisites):
         adjacency_list[v].append(e)
         degree_list[e] += 1
 
-    sources = deque()
+    sources = set()
 
     for v, degree in degree_list.items():
         if degree == 0:
-            sources.append(v)
+            sources.add(v)
 
 
     get_order(results, [], sources, adjacency_list, degree_list)

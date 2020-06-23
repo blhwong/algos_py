@@ -76,7 +76,33 @@ def find_Kth_smallest_number_min_heap(nums, k):
     return ans
 
 def find_Kth_smallest_number_quick_sort_partitioning(nums, k):
-    return -1
+    def partition(low, high):
+        if low == high:
+            return low
+
+        pivot = nums[high]
+        for i in range(low, high):
+            if nums[i] < pivot:
+                nums[low], nums[i] = nums[i], nums[low]
+                low += 1
+
+        nums[low], nums[high] = nums[high], nums[low]
+        return low
+
+    def quicksort(low, high):
+        p = partition(low, high)
+
+        if p == k - 1:
+            return nums[p]
+
+        if p > k - 1:
+            return quicksort(low, p - 1)
+
+        return quicksort(p + 1, high)
+
+    return quicksort(0, len(nums) - 1)
+
+
 
 def find_Kth_smallest_number_quick_sort_randomized_partitioning(nums, k):
     return -1

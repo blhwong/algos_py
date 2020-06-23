@@ -23,6 +23,7 @@ Explanation: The 3rd smallest number is '11', as the first two small numbers are
 """
 
 from heapq import *
+from random import randint
 
 
 def find_Kth_smallest_number_brute_force(nums, k):
@@ -105,7 +106,35 @@ def find_Kth_smallest_number_quick_sort_partitioning(nums, k):
 
 
 def find_Kth_smallest_number_quick_sort_randomized_partitioning(nums, k):
-    return -1
+    def partition(low, high):
+        if low == high:
+            return low
+
+        p_idx = randint(low, high)
+        nums[p_idx], nums[high] = nums[high], nums[p_idx]
+
+        pivot = nums[high]
+
+        for i in range(low, high):
+            if nums[i] < pivot:
+                nums[i], nums[low] = nums[low], nums[i]
+                low += 1
+
+        nums[high], nums[low] = nums[low], nums[high]
+        return low
+
+    def quicksort(low, high):
+        p = partition(low, high)
+
+        if p == k - 1:
+            return nums[p]
+
+        if p > k - 1:
+            return quicksort(low, p - 1)
+
+        return quicksort(p + 1, high)
+
+    return quicksort(0, len(nums) - 1)
 
 def find_Kth_smallest_number_median_of_medians(nums, k):
     return -1

@@ -22,6 +22,8 @@ Output: 11
 Explanation: The 3rd smallest number is '11', as the first two small numbers are [5, -1].
 """
 
+from heapq import *
+
 
 def find_Kth_smallest_number_brute_force(nums, k):
     prev_idx = -1
@@ -50,7 +52,16 @@ def find_Kth_smallest_number_brute_force_sorting(nums, k):
     return sorted(nums)[k - 1]
 
 def find_Kth_smallest_number_max_heap(nums, k):
-    return -1
+    max_heap = []
+    for i in range(k):
+        heappush(max_heap, -nums[i])
+
+    for i in range(k, len(nums)):
+        curr = nums[i]
+        if curr < -max_heap[0]:
+            heappushpop(max_heap, -curr)
+
+    return -max_heap[0]
 
 def find_Kth_smallest_number_min_heap(nums, k):
     return -1

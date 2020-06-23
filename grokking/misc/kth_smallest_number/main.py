@@ -137,4 +137,49 @@ def find_Kth_smallest_number_quick_sort_randomized_partitioning(nums, k):
     return quicksort(0, len(nums) - 1)
 
 def find_Kth_smallest_number_median_of_medians(nums, k):
-    return -1
+    def median_of_medians(low, high):
+        n = high - low + 1
+        if n < 5:
+            return nums[low]
+
+        partitions = [nums[j:j + 5] for j in range(low, high + 1, 5)]
+        full_partitions = [partition for partition in partitions if len(partition) == 5]
+        sorted_partitions = [sorted(partition) for partition in full_partitions]
+        medians = [partition[2] for partition in sorted_partitions]
+        return partition(medians, 0, len(medians) - 1)
+
+
+    def partition(nums, low, high):
+        if low == high:
+            return low
+
+        median = median_of_medians(low, high)
+
+        for i in range(low, high):
+            if nums[i] == median:
+                nums[high], nums[i] = nums[i], nums[high]
+
+        pivot = nums[high]
+
+        for i in range(low, high):
+            if nums[i] < pivot:
+                nums[i], nums[low] = nums[low], nums[i]
+                low += 1
+
+        nums[high], nums[low] = nums[low], nums[high]
+        return low
+
+
+    def quicksort(low, high):
+        p = partition(nums, low, high)
+
+        if p == k - 1:
+            return nums[p]
+
+        if p > k - 1:
+            return quicksort(low, p - 1)
+
+        return quicksort(p + 1, high)
+
+
+    return quicksort(0, len(nums) - 1)

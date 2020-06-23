@@ -47,7 +47,7 @@ def find_Kth_smallest_number_brute_force(nums, k):
     return prev_val
 
 def find_Kth_smallest_number_brute_force_sorting(nums, k):
-    return -1
+    return sorted(nums)[k - 1]
 
 def find_Kth_smallest_number_max_heap(nums, k):
     return -1

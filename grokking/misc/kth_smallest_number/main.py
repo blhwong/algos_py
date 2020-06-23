@@ -24,7 +24,27 @@ Explanation: The 3rd smallest number is '11', as the first two small numbers are
 
 
 def find_Kth_smallest_number_brute_force(nums, k):
-    return -1
+    prev_idx = -1
+    min_idx = -1
+    prev_val = -float('inf')
+    min_val = float('inf')
+    for j in range(k):
+        for i, num in enumerate(nums):
+            if prev_val < num < min_val:
+                min_val = num
+                min_idx = i
+            elif num == prev_val and i > prev_idx:
+                min_val = num
+                min_idx = i
+                break
+
+        prev_val = min_val
+        prev_idx = min_idx
+        min_val = float('inf')
+        min_idx = -1
+
+
+    return prev_val
 
 def find_Kth_smallest_number_brute_force_sorting(nums, k):
     return -1

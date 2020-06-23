@@ -38,10 +38,10 @@ def get_order(results, curr_order, curr_source, adjacency_list, curr_degree_list
         results.append(curr_order)
     for v in curr_source:
         new_order = curr_order.copy()
-        new_order.append(v)
         next_source = curr_source.copy()
-        next_source.remove(v)
         new_degree_list = curr_degree_list.copy()
+        new_order.append(v)
+        next_source.remove(v)
 
         for child in adjacency_list[v]:
             new_degree_list[child] -= 1
@@ -49,6 +49,7 @@ def get_order(results, curr_order, curr_source, adjacency_list, curr_degree_list
                 next_source.add(child)
 
         get_order(results, new_order, next_source, adjacency_list, new_degree_list)
+
 
 def get_all_orders(tasks, prerequisites):
     results = []
@@ -64,7 +65,6 @@ def get_all_orders(tasks, prerequisites):
     for v, degree in degree_list.items():
         if degree == 0:
             sources.add(v)
-
 
     get_order(results, [], sources, adjacency_list, degree_list)
     return results

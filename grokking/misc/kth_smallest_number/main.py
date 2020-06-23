@@ -64,7 +64,16 @@ def find_Kth_smallest_number_max_heap(nums, k):
     return -max_heap[0]
 
 def find_Kth_smallest_number_min_heap(nums, k):
-    return -1
+    min_heap = []
+    for num in nums:
+        heappush(min_heap, num)
+
+    ans = -1
+
+    for _ in range(k):
+        ans = heappop(min_heap)
+
+    return ans
 
 def find_Kth_smallest_number_quick_sort_partitioning(nums, k):
     return -1

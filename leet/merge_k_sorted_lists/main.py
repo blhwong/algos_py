@@ -1,41 +1,29 @@
 from typing import List
 from data_structures.list_node import ListNode
+from heapq import *
 
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-        def get_values(l):
-            values = []
-            curr = l
-            while curr:
-                values.append(curr.val)
-                curr = curr.next
-            return values
+        min_heap = []
+        for i in range(len(lists)):
+            curr_list = lists[i]
+            if curr_list:
+                heappush(min_heap, (curr_list.val, i, curr_list))
 
-        head = None
-        tail = None
+        head, tail = None, None
 
-        def add_to_tail(value):
-            nonlocal head
-            nonlocal tail
+        while min_heap:
+            val, i, curr_list = heappop(min_heap)
+            if curr_list.next:
+                heappush(min_heap, (curr_list.next.val, i, curr_list.next))
+
             if not head:
-                head = ListNode(value)
+                head = ListNode(val)
                 tail = head
             else:
-                if not head:
+                if not head.next:
                     head.next = tail
-
-                tail.next = ListNode(value)
+                tail.next = ListNode(val)
                 tail = tail.next
-
-
-        all_values = []
-        for i in lists:
-            values = get_values(i)
-            all_values += values
-
-        all_values.sort()
-
-        for i in all_values:
-            add_to_tail(i)
 
         return head

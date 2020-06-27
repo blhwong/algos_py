@@ -4,53 +4,29 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
 
-        if not nums or nums[0] > 0 or nums[len(nums) - 1] < 0:
-            return []
-        zeroes = 0
-        negatives = {}
-        positives = {}
+        triplets = []
 
-        for i in nums:
-            if i < 0:
-                if not negatives.get(i):
-                    negatives[i] = 0
-                negatives[i] += 1
-            elif i == 0:
-                zeroes += 1
-            else:
-                if not positives.get(i):
-                    positives[i] = 0
-                positives[i] += 1
+        def pair_with_target_sum(arr, target_sum, left, triplets):
+            right = len(arr) - 1
+            while left < right:
+                curr = arr[left] + arr[right]
+                if curr == target_sum:
+                    triplets.append([-target_sum, arr[left], arr[right]])
+                    left_num, right_num = arr[left], arr[right]
+                    while arr[left] == left_num and left < right:
+                        left += 1
 
-        ans = set()
-        if zeroes >= 3:
-            ans.add((0, 0, 0))
-        if zeroes >= 1:
-            # find one pos and one neg
-            for i in negatives.keys():
-                if positives.get(abs(i)):
-                    ans.add((i, 0, abs(i)))
+                    while arr[right] == right_num and left < right:
+                        right -= 1
 
+                elif curr < target_sum:
+                    left += 1
+                else:
+                    right -= 1
 
-        for i in {**negatives, **positives}:
-            if i < 0:
-                ## find positive
-                for j in positives.keys():
-                    k = -i - j
-                    if k not in positives:
-                        continue
-                    if k == j and positives[j] - 1 < 1:
-                        continue
-                    ans.add(tuple(sorted((i, j, k))))
-            elif i > 0:
-                ## find negatives
-                for j in negatives.keys():
-                    k = -i - j
-                    if k not in negatives:
-                        continue
-                    if  k == j and negatives[j] - 1 < 1:
-                        continue
-                    ans.add(tuple(sorted((i, j, k))))
+        for i in range(len(nums)):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            pair_with_target_sum(nums, -nums[i], i + 1, triplets)
 
-
-        return [list(s) for s in ans]
+        return triplets

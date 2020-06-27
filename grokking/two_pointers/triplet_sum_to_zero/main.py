@@ -20,8 +20,11 @@ def search_triplets(arr):
             curr = arr[left] + arr[right]
             if curr == targetsum:
                 triplets.append([-targetsum, arr[left], arr[right]])
-                left += 1
-                right -= 1
+                curr_left, curr_right = arr[left], arr[right]
+                while curr_left == arr[left] and left < right:
+                    left += 1
+                while curr_right == arr[right] and left < right:
+                    right -= 1
             elif curr < targetsum:
                 left += 1
             else:

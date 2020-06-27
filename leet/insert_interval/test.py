@@ -15,6 +15,12 @@ class TestSuite(TestCase):
         expected = [[1, 2], [3, 10], [12, 16]]
         self.assertCountEqual(s.insert(intervals, [4, 8]), expected)
 
+    def test_3(self):
+        intervals = [[1, 5]]
+        expected = [[1, 5]]
+
+        self.assertCountEqual(s.insert(intervals, [2, 3]), expected)
+
 
 if __name__ == '__main__':
     main()

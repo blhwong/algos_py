@@ -2,17 +2,22 @@ from typing import List
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        res = []
-        for interval in sorted(intervals, key=lambda a: a[0]):
-            if not res:
-                res.append(interval)
-            else:
-                top = res[len(res) - 1]
-                left, right = top
-                if right < interval[0]:
-                    res.append(interval)
-                else:
-                    top[0] = min(top[0], interval[0])
-                    top[1] = max(top[1], interval[1])
-        # print(res)
-        return res
+        intervals.sort(key=lambda x: x[0])
+
+        ans = []
+        if not intervals:
+            return ans
+        start, end = intervals[0]
+
+        for i in range(1, len(intervals)):
+            curr = intervals[i]
+
+            if curr[0] > end:
+                ans.append([start, end])
+                start, end = curr
+
+            end = max(end, curr[1])
+
+        ans.append([start, end])
+
+        return ans

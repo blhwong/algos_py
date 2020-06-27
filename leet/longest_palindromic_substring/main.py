@@ -18,13 +18,13 @@ class Solution:
             return left + 1, right - 1
 
 
-        ans = s[0]
+        left, right = 0, 0
         for i in range(len(s) - 1):
             l1, r1 = find_palindrome_bounds(s, i, i)
             l2, r2 = find_palindrome_bounds(s, i, i + 1)
-            if r1 - l1 + 1 > len(ans):
-                ans = s[l1:r1 + 1]
-            if r2 - l2 + 1 > len(ans):
-                ans = s[l2:r2 + 1]
+            if r2 - l2 > right - left:
+                left, right = l2, r2
+            elif r1 - l1 > right - left:
+                left, right = l1, r1
 
-        return ans
+        return s[left:right + 1]

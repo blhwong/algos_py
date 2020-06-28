@@ -8,7 +8,7 @@ def spiralTraverse(array):
             self.col = 0
             self.visited = [[False] * self.col_count for _ in range(self.row_count)]
             self.matrix = matrix
-            self.unvisited = self.row_count * self.col_count
+            self.count = 0
 
         def can_visit(self, row, col):
             return (
@@ -20,7 +20,7 @@ def spiralTraverse(array):
         def add_to_list(self, row, col):
             if not self.visited[row][col]:
                 self.ans.append(self.matrix[row][col])
-                self.unvisited -= 1
+                self.count += 1
                 self.visited[row][col] = True
 
         def visit(self, row_delta, col_delta):
@@ -44,7 +44,7 @@ def spiralTraverse(array):
             self.visit(-1, 0)
 
         def solve(self):
-            while self.unvisited > 0:
+            while self.count < self.row_count * self.col_count:
                 self.go_right()
                 self.go_down()
                 self.go_left()

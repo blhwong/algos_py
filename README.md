@@ -153,3 +153,14 @@ If you are inserting a tuple, and there are ties, consider entering an additiona
 ## Bits
 
 Use `bin(num)` to get binary representation
+
+## Type
+
+Use `type()` to determine type.
+
+E.g.
+```python
+type(4) is int
+type([1, 2, 3]) is list
+type('hello) is str
+```

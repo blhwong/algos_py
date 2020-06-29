@@ -24,12 +24,11 @@ def spiralTraverse(array):
                 self.visited[row][col] = True
 
         def visit(self, row_delta, col_delta):
-            row, col = self.row, self.col
-            self.add_to_list(row, col)
-            if self.can_visit(row + row_delta, col + col_delta):
+            self.add_to_list(self.row, self.col)
+            while self.can_visit(self.row + row_delta, self.col + col_delta):
                 self.row += row_delta
                 self.col += col_delta
-                self.visit(row_delta, col_delta)
+                self.add_to_list(self.row, self.col)
 
         def go_right(self):
             self.visit(0, 1)

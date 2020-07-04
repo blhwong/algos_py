@@ -8,7 +8,7 @@ If, in the end, you are left with a sub-list with less than ‘k’ elements, re
 
 def reverse_every_k_elements(head, k):
     curr, prev = head, None
-    while True:
+    while curr:
         i = 0
         before_p = prev
         q = curr
@@ -25,9 +25,6 @@ def reverse_every_k_elements(head, k):
             head = prev
 
         q.next = curr
-
-        if not curr:
-            break
         prev = q
 
     return head

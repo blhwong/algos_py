@@ -18,22 +18,15 @@ Input: [1,3,5]
 Output: [1,3,5], [1,5,3], [3,1,5], [3,5,1], [5,1,3], [5,3,1]
 """
 
-from collections import deque
-
 def find_permutations(nums):
-    result = []
-    p = deque()
-    p.append([])
+    result = [[]]
     for curr in nums:
-        for _ in range(len(p)):
-            old = p.popleft()
-            for i in range(len(old) + 1):
-                new = old.copy()
-                new.insert(i, curr)
-                if len(new) == len(nums):
-                    result.append(new)
-                else:
-                    p.append(new)
+        tmp = []
+        for subset in result:
+            for i in range(len(subset) + 1):
+                tmp.append(subset[:i] + [curr] + subset[i:])
+
+            result = tmp
 
 
     return result

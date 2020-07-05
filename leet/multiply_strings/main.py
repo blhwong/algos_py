@@ -1,14 +1,3 @@
-"""
-      2 2
-      1 2 3
-      9 8 7
-
-      8 6 1
-    9 8 4 0
-1 1 0 7 0 0
-
-"""
-
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         def get_sums(num1, num2):

@@ -18,9 +18,10 @@ class TreeNode:
                 storage.append(None)
                 continue
             storage.append(curr.val)
-            if not curr.left and not curr.right:
-                continue
             q.append(curr.left)
             q.append(curr.right)
+
+        while storage[-1] == None:
+            storage.pop()
 
         return str(storage)

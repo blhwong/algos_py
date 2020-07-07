@@ -1,4 +1,4 @@
-from data_structures.binary_search_tree.main import BST
+from data_structures.binary_search_tree import BST
 from collections import deque
 
 def minHeightBst(array):

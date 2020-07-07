@@ -39,3 +39,20 @@ class BST:
                 self.right = BST(value)
             else:
                 self.right.insert(value)
+
+    @staticmethod
+    def compare(root1, root2):
+        def traverse(curr1, curr2):
+            if not curr1 and not curr2:
+                return True
+            if not curr1 and curr2:
+                return False
+            if curr1 and not curr2:
+                return False
+
+            if curr1.val != curr2.val:
+                return False
+
+            return traverse(curr1.left, curr2.left) and traverse(curr1.right, curr2.right)
+
+        return traverse(root1, root2)

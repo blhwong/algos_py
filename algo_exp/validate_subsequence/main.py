@@ -1,9 +1,8 @@
 def isValidSubsequence(array, sequence):
-    i, j = 0, 0
+    i = 0
 
-    while i < len(array):
-        if j < len(sequence) and array[i] == sequence[j]:
-            j += 1
-        i += 1
+    for num in array:
+        if i < len(sequence) and num == sequence[i]:
+            i += 1
 
-    return j == len(sequence)
+    return i == len(sequence)

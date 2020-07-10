@@ -10,4 +10,3 @@ def twoNumberSum(array, targetSum):
             tracker.add(num)
 
     return []
-

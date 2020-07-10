@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from algo_exp.closest_value_in_bst.main import findClosestValueInBst
+from algo_exp.closest_value_in_bst.main import findClosestValueInBst, findClosestValueInBstIterative
 from data_structures.tree_node import TreeNode
 
 
@@ -15,6 +15,7 @@ class TestSuite(TestCase):
         root.right.right = TreeNode(22)
         root.right.left.right = TreeNode(14)
         self.assertEqual(findClosestValueInBst(root, 12), 13)
+        self.assertEqual(findClosestValueInBstIterative(root, 12), 13)
 
 
 if __name__ == '__main__':

@@ -10,8 +10,8 @@ def nodeDepths(root):
         curr, depth = q.popleft()
         ans += depth
         if curr.left:
-            q.appendleft((curr.left, depth + 1))
+            q.append((curr.left, depth + 1))
         if curr.right:
-            q.appendleft((curr.right, depth + 1))
+            q.append((curr.right, depth + 1))
 
     return ans

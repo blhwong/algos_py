@@ -1,10 +1,9 @@
 def getNthFib(n):
-    i, prev, curr = 1, 0, 1
+    prev, curr = 0, 1
 
-    while i < n:
+    for _ in range(1, n):
         tmp = prev
         prev = curr
         curr += tmp
-        i += 1
 
     return prev

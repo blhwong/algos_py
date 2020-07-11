@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from algo_exp.coin_change.main import numberOfWaysToMakeChange
+from algo_exp.coin_change_possibilities.main import numberOfWaysToMakeChange
 
 
 class TestSuite(TestCase):

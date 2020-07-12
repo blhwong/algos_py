@@ -1,12 +1,10 @@
 def hasSingleCycle(array):
-    fast, slow = 0, 0
+    i = 0
+    visited = 0
+    while visited < len(array):
+        if i == 0 and visited > 0:
+            return False
+        i = ((i + array[i]) % len(array))
+        visited += 1
 
-    while fast < len(array):
-        slow += array[slow]
-        fast += array[fast]
-        if fast < len(array):
-            fast += array[fast]
-        if slow == fast:
-            return True
-
-    return False
+    return i == 0

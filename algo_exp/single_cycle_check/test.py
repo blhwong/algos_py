@@ -7,7 +7,16 @@ class TestSuite(TestCase):
         self.assertTrue(hasSingleCycle([2, 3, 1, -4, -4, 2]))
 
     def test_2(self):
-        self.assertFalse(hasSingleCycle([1, 1, 1]))
+        self.assertFalse(hasSingleCycle([2, 1, 1]))
+
+    def test_3(self):
+        self.assertTrue(hasSingleCycle([2, 2, -1]))
+
+    def test_3(self):
+        self.assertFalse(hasSingleCycle([1, 1, 0, 1, 1]))
+
+    def test_4(self):
+        self.assertFalse(hasSingleCycle([1, 1, 1, 1, 2]))
 
 
 if __name__ == '__main__':

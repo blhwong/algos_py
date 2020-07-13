@@ -56,8 +56,7 @@ class MinHeap:
         return self.heap[0]
 
     def remove(self):
-        last = len(self.heap) - 1
-        self.heap[0], self.heap[last] = self.heap[last], self.heap[0]
+        self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
         value = self.heap.pop()
         self.siftDown(0, self.heap)
         return value

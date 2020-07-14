@@ -1,14 +1,5 @@
-def add(nums):
-    ans = 0
-    for num in nums:
-        ans += int(num)
-
-    return ans
-
 def calculate(input_string):
-
     cleaned_str = ''
-
     i = 0
     while i < len(input_string):
         char = input_string[i]
@@ -37,24 +28,26 @@ def calculate(input_string):
             i += 1
 
 
-    to_add = []
-    to_subtract = []
-    operation = '+' if cleaned_str[0] != '-' else '-'
+    starts_with_sign = cleaned_str[0] == '-' or cleaned_str[0] == '+'
+    ans = 0
+    start = 0 if not starts_with_sign else 1
+    operation = '+' if not starts_with_sign else cleaned_str[0]
     curr = ''
-    for char in cleaned_str:
+    for i in range(start, len(cleaned_str)):
+        char = cleaned_str[i]
         if char == '+' or char == '-':
             if operation == '+':
-                to_add.append(curr)
+                ans += int(curr)
             elif operation == '-':
-                to_subtract.append(f'-{curr}')
+                ans -= int(curr)
             operation = char
             curr = ''
         else:
             curr += char
 
     if operation == '+':
-        to_add.append(curr)
+        ans += int(curr)
     elif operation == '-':
-        to_subtract.append(f'-{curr}')
+        ans -= int(curr)
 
-    return add(to_add) + add(to_subtract)
+    return ans

@@ -21,5 +21,10 @@ class TestSuite(TestCase):
     def test_6(self):
         self.assertEqual(calculate('5+2-1+10-3+1'), 14)
 
+    def test_7(self):
+        self.assertEqual(calculate('-1-2-3'), -6)
+
+
+
 if __name__ == '__main__':
     main()

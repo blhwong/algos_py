@@ -12,12 +12,14 @@
 """
 def minRewards(scores):
     dp = [1] * len(scores)
-    for i in range(1, len(scores)):
-        if scores[i] > scores[i - 1]:
-            dp[i] = max(dp[i], dp[i - 1] + 1)
+    for curr in range(1, len(scores)):
+        prev = curr - 1
+        if scores[curr] > scores[prev]:
+            dp[curr] = max(dp[curr], dp[prev] + 1)
 
-    for i in reversed(range(len(scores) - 1)):
-        if scores[i] > scores[i + 1]:
-            dp[i] = max(dp[i], dp[i + 1] + 1)
+    for curr in reversed(range(len(scores) - 1)):
+        prev = curr + 1
+        if scores[curr] > scores[prev]:
+            dp[curr] = max(dp[curr], dp[prev] + 1)
 
     return sum(dp)

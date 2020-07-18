@@ -13,7 +13,7 @@ class TestSuite(TestCase):
         self.assertEqual(minNumberOfCoinsForChange(0, [1, 2, 3]), 0)
 
     def test_4(self):
-        self.assertEqual(minNumberOfCoinsForChange(10, []), 0)
+        self.assertEqual(minNumberOfCoinsForChange(10, []), -1)
 
     def test_5(self):
         self.assertEqual(minNumberOfCoinsForChange(12, [2, 3, 7]), 3)

@@ -18,7 +18,7 @@ class SuffixTrie:
                     if char not in ref:
                         ref[char] = {}
                     ref = ref[char]
-                ref['*'] = True
+                ref[self.endSymbol] = True
 
     def contains(self, string):
         ref = self.root
@@ -27,4 +27,4 @@ class SuffixTrie:
                 return False
             ref = ref[char]
 
-        return ref.get('*') == True
+        return ref.get(self.endSymbol) == True

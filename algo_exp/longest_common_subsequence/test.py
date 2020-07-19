@@ -9,5 +9,8 @@ class TestSuite(TestCase):
     def test_2(self):
         self.assertListEqual(longestCommonSubsequence('clement', 'antoine'), ['n', 't'])
 
+    def test_3(self):
+        self.assertListEqual(longestCommonSubsequence('abcba', 'abcbcba'), ['a', 'b', 'c', 'b', 'a'])
+
 if __name__ == '__main__':
     main()

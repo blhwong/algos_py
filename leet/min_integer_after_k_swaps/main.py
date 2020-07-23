@@ -3,10 +3,10 @@ class Solution:
         if k <= 0:
             return num
         n = len(num)
-        if k >= n*(n-1)//2:
-            return "".join(sorted(list(num)))
+        if k >= n * (n - 1) // 2:
+            return ''.join(sorted(list(num)))
 
         for i in range(10):
-            ind = num.find(str(i))
-            if 0 <= ind <= k:
-                return str(num[ind]) + self.minInteger(num[0:ind] + num[ind+1:], k-ind)
+            idx = num.find(str(i))
+            if 0 <= idx <= k:
+                return str(num[idx]) + self.minInteger(num[0:idx] + num[idx + 1:], k - idx)

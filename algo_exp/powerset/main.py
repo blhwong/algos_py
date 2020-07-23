@@ -6,4 +6,3 @@ def powerset(array):
             ans.append(ans[i] + [num])
 
     return ans
-

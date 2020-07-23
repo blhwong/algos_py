@@ -19,27 +19,34 @@ def fourNumberSum(array, targetSum):
 
 def fourSum(array, targetSum):
     array.sort()
+    return k_sum(array, targetSum, 4)
+
+
+def k_sum(array, target, k):
     ans = []
+    if not array or not (array[0] * k <= target <= array[-1] * k):
+        return ans
+    if k == 2:
+        return two_sum(array, target)
     for i in range(len(array)):
-        num = array[i]
-        threeSum(array, targetSum - num, num, i + 1, ans)
+        for _, pairs in enumerate(k_sum(array[i + 1:], target - array[i], k - 1)):
+            ans.append([array[i]] + pairs)
+
     return ans
 
 
-def threeSum(array, target, num1, start, ans):
-    for i in range(start, len(array)):
-        num2 = array[i]
-        twoSum(array, target - num2, num1, num2, i + 1, ans)
-
-def twoSum(array, target, num1, num2, left, ans):
-    right = len(array) - 1
+def two_sum(array, target):
+    pairs = []
+    left, right = 0, len(array) - 1
     while left < right:
         curr_sum = array[left] + array[right]
-        if curr_sum == target:
-            ans.append([num1, num2, array[left], array[right]])
+        if curr_sum < target or (left > 0 and array[left] == array[left - 1]):
             left += 1
+        elif curr_sum > target or (right < len(array) - 1 and array[right] == array[right + 1]) :
             right -= 1
-        elif curr_sum < target:
-            left += 1
         else:
+            pairs.append([array[left], array[right]])
+            left += 1
             right -= 1
+
+    return pairs

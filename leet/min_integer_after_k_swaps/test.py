@@ -17,5 +17,9 @@ class TestSuite(TestCase):
     def test_4(self):
         self.assertEqual(s.minInteger('22', 22), '22')
 
+    def test_5(self):
+        self.assertEqual(s.minInteger(
+            '9438957234785635408', 23), '0345989723478563548')
+
 if __name__ == '__main__':
     main()

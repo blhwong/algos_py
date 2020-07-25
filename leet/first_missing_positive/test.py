@@ -20,7 +20,7 @@ class TestSuite(TestCase):
     def test_5(self):
         self.assertEqual(s.firstMissingPositive([0, 2, 2, 4, 0, 1, 0, 1, 3]), 5)
 
-    def test_5(self):
+    def test_6(self):
         self.assertEqual(s.firstMissingPositive([]), 1)
 
 if __name__ == '__main__':

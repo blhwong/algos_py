@@ -13,7 +13,7 @@ class Solution:
             elif nums[i] == nums[nums[i]-1]:
                 i += 1
             else:
-                a, b = i, nums[i]-1
+                a, b = i, nums[i] - 1
                 nums[a], nums[b] = nums[b], nums[a]
 
         for i in range(len(nums)):

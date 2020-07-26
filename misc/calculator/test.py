@@ -37,7 +37,7 @@ class TestSuite(TestCase):
         self.assertEqual(calculate('2-(5-6)'), 3)
 
     def test_12(self):
-        self.assertEqual(calculate("(5-(1+(5)))"), -1)
+        self.assertEqual(calculate('(5-(1+(5)))'), -1)
 
 
 if __name__ == '__main__':

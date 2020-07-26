@@ -4,7 +4,7 @@ class Interval:
         self.end = end
 
     def print_interval(self):
-        print("[" + str(self.start) + ", " + str(self.end) + "]", end='')
+        print('[' + str(self.start) + ', ' + str(self.end) + ']', end='')
 
     @staticmethod
     def compare(intervals1, intervals2):

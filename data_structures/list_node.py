@@ -13,7 +13,7 @@ class ListNode:
             curr = curr.next
 
 
-        return "->".join(storage)
+        return '->'.join(storage)
 
     @staticmethod
     def compare(list1, list2):

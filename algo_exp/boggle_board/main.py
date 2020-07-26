@@ -11,14 +11,14 @@ def boggleBoard(board, words):
 
         visited[row][col] = True
         return (
-            visit(row , col + 1, word, start + 1, visited) or
-            visit(row + 1, col, word, start + 1, visited) or
-            visit(row - 1, col, word, start + 1, visited) or
-            visit(row, col - 1, word, start + 1, visited) or
-            visit(row + 1, col + 1, word, start + 1, visited) or
-            visit(row + 1, col - 1, word, start + 1, visited) or
             visit(row - 1, col - 1, word, start + 1, visited) or
-            visit(row - 1, col + 1, word, start + 1, visited)
+            visit(row - 1, col, word, start + 1, visited) or
+            visit(row - 1, col + 1, word, start + 1, visited) or
+            visit(row , col + 1, word, start + 1, visited) or
+            visit(row + 1, col + 1, word, start + 1, visited) or
+            visit(row + 1, col, word, start + 1, visited) or
+            visit(row + 1, col - 1, word, start + 1, visited) or
+            visit(row, col - 1, word, start + 1, visited)
         )
 
     ans = []

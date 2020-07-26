@@ -38,6 +38,38 @@ class TestSuite(TestCase):
         ]
         self.assertCountEqual(boggleBoard(board, words), expected)
 
+    def test_2(self):
+        board = [
+            ['c', 'o', 'm'],
+            ['r', 'p', 'l'],
+            ['c', 'i', 't'],
+            ['o', 'a', 'e'],
+            ['f', 'o', 'd'],
+            ['z', 'r', 'b'],
+            ['g', 'i', 'a'],
+            ['o', 'a', 'g'],
+            ['f', 's', 'z'],
+            ['t', 'e', 'i'],
+            ['t', 'w', 'd']
+        ]
+        words = [
+            'commerce',
+            'complicated',
+            'twisted',
+            'zigzag',
+            'comma',
+            'foobar',
+            'baz',
+            'there'
+        ]
+        expected = [
+            'complicated',
+            'foobar',
+            'twisted',
+            'zigzag',
+        ]
+        self.assertCountEqual(boggleBoard(board, words), expected)
+
 
 if __name__ == '__main__':
     main()

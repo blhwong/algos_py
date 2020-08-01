@@ -3,6 +3,8 @@ def quickSort(array):
         if low == high:
             return low
 
+        mid = (low + high) // 2
+        array[mid], array[high] = array[high], array[mid]
         pivot = array[high]
 
         for i in range(low, high):

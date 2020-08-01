@@ -8,23 +8,22 @@ L                M                  R
 """
 
 def shiftedBinarySearch(array, target):
-    def search(left, right):
-        if left > right:
-            return -1
-
+    left, right = 0, len(array) - 1
+    ans = -1
+    while left <= right:
         mid = (left + right) // 2
 
         if array[mid] == target:
             return mid
-        elif array[left] <= array[mid]: # left side sorted
+        elif array[left] <= array[mid]:
             if array[mid] > target and array[left] <= target:
-                # go left only if the left bound is <= target
-                return search(left, mid - 1)
-            return search(mid + 1, right)
-        else: # right side sorted
+                right = mid - 1
+            else:
+                left = mid + 1
+        else:
             if array[mid] < target and array[right] >= target:
-                # go right only if right bound is >= target
-                return search(mid + 1, right)
-            return search(left, mid - 1)
+                left = mid + 1
+            else:
+                right = mid - 1
 
-    return search(0, len(array) - 1)
+    return ans

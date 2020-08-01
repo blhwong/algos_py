@@ -1,29 +1,22 @@
 def searchForRange(array, target):
-    def search(left, right, ans, find_max):
-        if left > right:
-            return
+    def search(find_max):
+        left, right = 0, len(array) - 1
+        ans = -1
 
-        mid = (left + right) // 2
+        while left <= right:
+            mid = (left + right) // 2
 
-        if array[mid] == target:
-            if find_max:
-                if mid == len(array) - 1 or array[mid + 1] != target:
-                    ans[1] = mid
+            if array[mid] == target:
+                ans = mid
+                if find_max:
+                    left = mid + 1
                 else:
-                    search(mid + 1, right, ans, find_max)
+                    right = mid - 1
+            elif array[mid] < target:
+                left = mid + 1
             else:
-                if mid == 0 or array[mid - 1] != target:
-                    ans[0] = mid
-                else:
-                    search(left, mid - 1, ans, find_max)
+                right = mid - 1
 
-        elif array[mid] < target:
-            search(mid + 1, right, ans, find_max)
-        else:
-            search(left, mid - 1, ans, find_max)
+        return ans
 
-    ans = [-1, -1]
-    search(0, len(array) - 1, ans, False)
-    search(0, len(array) - 1, ans, True)
-
-    return ans
+    return [search(False), search(True)]

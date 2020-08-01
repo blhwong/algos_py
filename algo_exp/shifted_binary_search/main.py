@@ -1,3 +1,12 @@
+"""
+[61, 71, 72, 73, 0, 1, 21, 33, 45, 45]
+
+[45, 61, 71, 72, 73, 0, 1, 21, 33, 45]
+L                M                  R
+
+** Only apply binary search logic on the sorted side
+"""
+
 def shiftedBinarySearch(array, target):
     def search(left, right):
         if left > right:
@@ -7,12 +16,14 @@ def shiftedBinarySearch(array, target):
 
         if array[mid] == target:
             return mid
-        if array[left] <= array[mid]:
-            if target < array[mid] and target >= array[left]:
+        elif array[left] <= array[mid]: # left side sorted
+            if array[mid] > target and array[left] <= target:
+                # go left only if the left bound is <= target
                 return search(left, mid - 1)
             return search(mid + 1, right)
-        else:
-            if target > array[mid] and target <= array[right]:
+        else: # right side sorted
+            if array[mid] < target and array[right] >= target:
+                # go right only if right bound is >= target
                 return search(mid + 1, right)
             return search(left, mid - 1)
 

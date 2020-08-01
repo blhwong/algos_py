@@ -11,5 +11,9 @@ class TestSuite(TestCase):
         array = [5, 23, 111, 1]
         self.assertEqual(shiftedBinarySearch(array, 111), 2)
 
+    def test_3(self):
+        array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        self.assertEqual(shiftedBinarySearch(array, 7), 6)
+
 if __name__ == '__main__':
     main()

@@ -1,3 +1,11 @@
+"""
+You could heapify the array and pop heap into a new array.
+
+In order to save space, create a max heap
+Swap the largest number max_heap[0] to the end
+Sift down to reorder the max_heap only up until end
+"""
+
 def compare(a, b):
     return a > b
 
@@ -24,7 +32,7 @@ def heapify(array):
 
 def heapSort(array):
     heapify(array)
-    for i in reversed(range(1, len(array))):
-        array[0], array[i] = array[i], array[0]
-        sift_down(0, i, array)
+    for end in reversed(range(1, len(array))):
+        array[0], array[end] = array[end], array[0]
+        sift_down(0, end, array)
     return array

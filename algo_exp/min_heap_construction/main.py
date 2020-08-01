@@ -44,8 +44,8 @@ class MinHeap:
             curr_idx = swap_idx
             swap_idx = self.get_swap_idx(curr_idx, heap)
 
-    def siftUp(self, start, heap):
-        curr_idx = start
+    def siftUp(self, end, heap):
+        curr_idx = end
         parent_idx = self.get_parent_idx(curr_idx)
         while curr_idx > 0 and self.compare(heap[curr_idx], heap[parent_idx]):
             heap[curr_idx], heap[parent_idx] = heap[parent_idx], heap[curr_idx]

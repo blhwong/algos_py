@@ -58,7 +58,6 @@ class TestSuite(TestCase):
         ]
         self.assertListEqual(board, expected)
 
-    @unittest.skip('long test')
     def test_3(self):
         board=[
             ['.','.','.','2','.','.','.','6','3'],

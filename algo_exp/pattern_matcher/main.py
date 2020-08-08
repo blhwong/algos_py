@@ -20,9 +20,11 @@ def patternMatcher(pattern, string):
         table[char].append(i)
 
     total_len = len(string)
+    total_x = len(table['x'])
+    total_y = len(table['y'])
     if table['y']:
         for len_of_x in range(1, total_len):
-            len_of_y = (total_len - len(table['x']) * len_of_x) // len(table['y'])
+            len_of_y = (total_len - total_x * len_of_x) // total_y
             x = string[:len_of_x]
             y_start = len_of_x * table['y'][0]
             y = string[y_start:y_start+len_of_y]
@@ -30,7 +32,7 @@ def patternMatcher(pattern, string):
             if s == string:
                 return [x, y] if not swapped else [y, x]
     else:
-        len_of_x = total_len // len(table['x'])
+        len_of_x = total_len // total_x
         x = string[:len_of_x]
         return [x, ''] if not swapped else ['', x]
 

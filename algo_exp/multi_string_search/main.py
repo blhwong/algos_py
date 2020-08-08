@@ -31,8 +31,6 @@ def multiStringSearch(bigString, smallStrings):
     suffix_trie = Trie([string[::-1] for string in bigStrings])
     ans = []
     for string in smallStrings:
-        f1 = search_trie(prefix_trie, string)
-        f2 = search_trie(suffix_trie, string[::-1])
         ans.append(search_trie(prefix_trie, string) or search_trie(suffix_trie, string[::-1]))
 
     return ans

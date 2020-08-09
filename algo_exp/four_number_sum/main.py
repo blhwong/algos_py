@@ -28,10 +28,9 @@ def k_sum(array, target, k):
         return ans
     if k == 2:
         return two_sum(array, target)
-    for i in range(len(array)):
-        for _, pairs in enumerate(k_sum(array[i + 1:], target - array[i], k - 1)):
-            ans.append([array[i]] + pairs)
-
+    for i, curr in enumerate(array):
+        for _, val in enumerate(k_sum(array[i + 1:], target - curr, k - 1)):
+            ans.append([curr] + val)
     return ans
 
 
@@ -42,7 +41,7 @@ def two_sum(array, target):
         curr_sum = array[left] + array[right]
         if curr_sum < target or (left > 0 and array[left] == array[left - 1]):
             left += 1
-        elif curr_sum > target or (right < len(array) - 1 and array[right] == array[right + 1]) :
+        elif curr_sum > target or (right < len(array) - 1 and array[right] == array[right + 1]):
             right -= 1
         else:
             pairs.append([array[left], array[right]])

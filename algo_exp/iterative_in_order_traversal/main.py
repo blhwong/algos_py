@@ -10,7 +10,7 @@ def iterativeInOrderTraversal(tree, callback):
 
     while curr:
         next_node = None
-        if curr.parent == prev:
+        if prev == curr.parent:
             if curr.left:
                 next_node = curr.left
             else:

@@ -3,10 +3,12 @@ def quickselect(array, k):
         if low == high:
             return low
 
+        mid = (low + high) // 2
+        array[mid], array[high] = array[high], array[mid]
         pivot = array[high]
         for i in range(low, high):
             if array[i] < pivot:
-                array[low], array[i] = array[i], array[low]
+                array[i], array[low] = array[low], array[i]
                 low += 1
 
         array[low], array[high] = array[high], array[low]

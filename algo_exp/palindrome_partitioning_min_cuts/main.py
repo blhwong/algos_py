@@ -43,8 +43,8 @@ def palindromePartitioningMinCuts(string):
         else:
             dp[j] = dp[j - 1] + 1
             for i in range(1, j):
-                if palindromes[i][j] and dp[i - 1] + 1 < dp[j]:
-                    dp[j] = dp[i - 1] + 1
+                if palindromes[i][j]:
+                    dp[j] = min(dp[j], dp[i - 1] + 1)
 
 
     return dp[-1]

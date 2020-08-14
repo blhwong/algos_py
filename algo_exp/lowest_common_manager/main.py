@@ -7,7 +7,7 @@ def getLowestCommonManagerByOrgInfo(topManager, reportOne, reportTwo):
                 return ans, lower_reports
             relevant_reports += lower_reports
 
-        if curr == reportOne or curr == reportTwo:
+        if curr in (reportOne, reportTwo):
             relevant_reports += 1
 
         ans = curr if relevant_reports == 2 else None

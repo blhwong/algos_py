@@ -1,3 +1,6 @@
+# 0  1  1  2  3  5  8  13
+# n begins at 1
+
 def getNthFib(n):
     prev, curr = 0, 1
 

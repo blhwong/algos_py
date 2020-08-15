@@ -22,7 +22,7 @@ def longestStringChain(strings):
     tracker = set(strings)
     memo = {}
 
-    strings.sort(key=by_length, reverse=True)
+    strings.sort(key=by_length)
 
     for string in strings:
         chain = get_chains(string, tracker, [], memo)

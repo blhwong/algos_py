@@ -1,4 +1,3 @@
-from unittest import TestCase, main
 from algo_exp.all_kinds_of_node_depths.main import allKindsOfNodeDepths, BinaryTree
 
 eight = BinaryTree(8)
@@ -20,10 +19,5 @@ one.left = two
 one.right = three
 
 
-class TestSuite(TestCase):
-    def test_1(self):
-        self.assertEqual(allKindsOfNodeDepths(one), 26)
-
-
-if __name__ == '__main__':
-    main()
+def test_1():
+    assert allKindsOfNodeDepths(one) == 26

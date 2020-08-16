@@ -1,10 +1,3 @@
-"""
-            5
-      -24        7
-          2    5    12
-            3   6  10  12
-                            35
-"""
 def longestIncreasingSubsequenceBruteForce(array):
     def solve(start, curr_sequence):
         if start >= len(array):
@@ -21,6 +14,14 @@ def longestIncreasingSubsequenceBruteForce(array):
 
     return solve(0, [])
 
+def build_from_sequences(array, sequences, start_idx):
+    curr = start_idx
+    ans = []
+    while curr is not None:
+        ans.append(array[curr])
+        curr = sequences[curr]
+
+    return list(reversed(ans))
 
 def longestIncreasingSubsequenceDP(array):
     lengths = [1] * len(array)
@@ -32,16 +33,30 @@ def longestIncreasingSubsequenceDP(array):
                 lengths[i] = lengths[j] + 1
                 sequences[i] = j
 
-    ans = []
+    start, _ = max(enumerate(lengths), key = lambda x: x[1])
+    return build_from_sequences(array, sequences, start)
 
-    largest_sequence = max(enumerate(lengths), key=lambda x: x[1])
-    curr_idx, _ = largest_sequence
-    while curr_idx is not None:
-        ans.append(array[curr_idx])
-        curr_idx = sequences[curr_idx]
 
-    return list(reversed(ans))
+def binary_search(left, right, indices, array, num):
+    while left <= right:
+        mid = (left + right) // 2
+        if array[indices[mid]] < num:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return left
 
 
 def longestIncreasingSubsequence(array):
-    pass
+    length = 0
+    sequences = [None] * len(array)
+    indices = [None] * (len(array) + 1)
+
+    for i, num in enumerate(array):
+        new_length = binary_search(1, length, indices, array, num)
+        sequences[i] = indices[new_length - 1]
+        indices[new_length] = i
+        length = max(length, new_length)
+
+    return build_from_sequences(array, sequences, indices[length])

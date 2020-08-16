@@ -1,4 +1,3 @@
-from unittest import TestCase, main
 from algo_exp.bst_construction.main import BST
 
 root = BST(10)
@@ -13,32 +12,29 @@ root.right.left.right = BST(14)
 
 
 
-class TestSuite(TestCase):
-    def test_1(self):
-        root.insert(12)
-        self.assertEqual(root.right.left.left.value, 12)
+def test_1():
+    root.insert(12)
+    assert root.right.left.left.value == 12
 
-    def test_2(self):
-        root.remove(10)
-        self.assertEqual(root.value, 12)
+def test_2():
+    root.remove(10)
+    assert root.value == 12
 
-    def test_3(self):
-        self.assertTrue(root.contains(15))
+def test_3():
+    assert root.contains(15)
 
-    def test_4(self):
-        self.assertFalse(root.contains(100))
+def test_4():
+    assert not root.contains(100)
 
-    def test_5(self):
-        root.remove(14)
-        self.assertIsNone(root.right.left.right)
+def test_5():
+    root.remove(14)
+    assert root.right.left.right is None
 
-    def test_6(self):
-        single = BST(1)
-        single.right = BST(2)
-        single.remove(3)
-        self.assertEqual(single.value, 1)
-        self.assertEqual(single.right.value, 2)
-
-
-if __name__ == '__main__':
-    main()
+def test_6():
+    single = BST(1)
+    single.right = BST(2)
+    single.remove(3)
+    assert single.value == 1
+    assert single.right.value == 2
+    assert single.value == 1
+    assert single.right.value == 2

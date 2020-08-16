@@ -1,4 +1,3 @@
-from unittest import TestCase, main
 from algo_exp.bst_traversal.main import inOrderTraverse, preOrderTraverse, postOrderTraverse
 from data_structures.tree_node import TreeNode
 
@@ -11,22 +10,17 @@ root.right.right = TreeNode(22)
 root.left.left.left = TreeNode(1)
 
 
-class TestSuite(TestCase):
-    def test_1(self):
-        arr = []
-        inOrderTraverse(root, arr)
-        self.assertListEqual(arr, [1, 2, 5, 5, 10, 15, 22])
+def test_1():
+    arr = []
+    inOrderTraverse(root, arr)
+    assert arr == [1, 2, 5, 5, 10, 15, 22]
 
-    def test_2(self):
-        arr = []
-        preOrderTraverse(root, arr)
-        self.assertListEqual(arr, [10, 5, 2, 1, 5, 15, 22])
+def test_2():
+    arr = []
+    preOrderTraverse(root, arr)
+    assert arr == [10, 5, 2, 1, 5, 15, 22]
 
-    def test_3(self):
-        arr = []
-        postOrderTraverse(root, arr)
-        self.assertListEqual(arr, [1, 2, 5, 5, 22, 15, 10])
-
-
-if __name__ == '__main__':
-    main()
+def test_3():
+    arr = []
+    postOrderTraverse(root, arr)
+    assert arr == [1, 2, 5, 5, 22, 15, 10]

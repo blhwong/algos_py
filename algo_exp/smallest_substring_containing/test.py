@@ -9,10 +9,10 @@ class TestSuite(TestCase):
     def test_2(self):
         self.assertEqual(smallestSubstringContaining('abcdefghijklmnopqrstuvwxyz', 'aajjttwwxxzz'), '')
 
-    # def test_3(self):
-    #     result = smallestSubstringContaining('a$fuu+afff+affaffa+a$Affab+a+a+$a$bccgtt+aaaacA+++aaa$', 'a+$aaAaaaa$++')
-    #     expected = 'affa+a$Affab+a+a+$a'
-    #     self.assertEqual(result, expected)
+    def test_3(self):
+        result = smallestSubstringContaining('a$fuu+afff+affaffa+a$Affab+a+a+$a$bccgtt+aaaacA+++aaa$', 'a+$aaAaaaa$++')
+        expected = 'affa+a$Affab+a+a+$a'
+        self.assertEqual(result, expected)
 
     def test_4(self):
         result = smallestSubstringContaining('145624356128828193236336541277356789901', '123')

@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from data_structures.binary_search_tree.main import BST
+from data_structures.binary_search_tree import BST
 
 
 class TestSuite(TestCase):

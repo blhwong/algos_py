@@ -14,6 +14,7 @@ def longestIncreasingSubsequenceBruteForce(array):
 
     return solve(0, [])
 
+
 def build_from_sequences(array, sequences, start_idx):
     curr = start_idx
     ans = []
@@ -22,6 +23,7 @@ def build_from_sequences(array, sequences, start_idx):
         curr = sequences[curr]
 
     return list(reversed(ans))
+
 
 def longestIncreasingSubsequenceDP(array):
     lengths = [1] * len(array)

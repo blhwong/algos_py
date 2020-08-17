@@ -1,4 +1,3 @@
-from unittest import TestCase, main
 from algo_exp.iterative_in_order_traversal.main import iterativeInOrderTraversal
 from data_structures.tree_node import TreeNode
 
@@ -24,12 +23,7 @@ one.right.left = six
 one.right.right = seven
 
 
-class TestSuite(TestCase):
-    def test_1(self):
-        result = []
-        iterativeInOrderTraversal(one, lambda node: result.append(node.val))
-        self.assertEqual(result, [4, 9, 2, 1, 6, 3, 7])
-
-
-if __name__ == '__main__':
-    main()
+def test_1():
+    result = []
+    iterativeInOrderTraversal(one, lambda node: result.append(node.val))
+    assert result == [4, 9, 2, 1, 6, 3, 7]

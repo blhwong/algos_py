@@ -21,10 +21,10 @@ def test_2():
     assert root.value == 12
 
 def test_3():
-    assert root.contains(15)
+    assert root.contains(15) is True
 
 def test_4():
-    assert not root.contains(100)
+    assert root.contains(100) is False
 
 def test_5():
     root.remove(14)

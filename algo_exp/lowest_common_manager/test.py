@@ -1,4 +1,3 @@
-from unittest import TestCase, main
 from algo_exp.lowest_common_manager.main import getLowestCommonManagerByCommonAncestor, getLowestCommonManagerByOrgInfo, OrgChart
 
 a = OrgChart('A')
@@ -19,14 +18,8 @@ d.directReports.append(i)
 c.directReports.append(f)
 c.directReports.append(g)
 
-class TestSuite(TestCase):
-    def test_1(self):
-        self.assertEqual(getLowestCommonManagerByCommonAncestor(a, e, i), b)
+def test_1():
+    assert getLowestCommonManagerByCommonAncestor(a, e, i) == b
 
-    def test_2(self):
-        self.assertEqual(getLowestCommonManagerByOrgInfo(a, e, i), b)
-
-
-
-if __name__ == '__main__':
-    main()
+def test_2():
+    assert getLowestCommonManagerByOrgInfo(a, e, i) == b

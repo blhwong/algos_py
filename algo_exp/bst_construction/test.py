@@ -36,5 +36,3 @@ def test_6():
     single.remove(3)
     assert single.value == 1
     assert single.right.value == 2
-    assert single.value == 1
-    assert single.right.value == 2

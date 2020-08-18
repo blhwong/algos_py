@@ -11,59 +11,70 @@ class BST:
         self.right = None
 
     def insert(self, value):
-        if value < self.value:
-            if self.left:
-                return self.left.insert(value)
+        curr = self
+        while curr:
+            if value < curr.value:
+                if curr.left:
+                    curr = curr.left
+                else:
+                    curr.left = BST(value)
+                    break
             else:
-                self.left = BST(value)
-        else:
-            if self.right:
-                return self.right.insert(value)
-            else:
-                self.right = BST(value)
+                if curr.right:
+                    curr = curr.right
+                else:
+                    curr.right = BST(value)
+                    break
 
         return self
 
     def contains(self, value):
-        if value == self.value:
-            return True
-
-        if value < self.value and self.left:
-            return self.left.contains(value)
-
-        if value > self.value and self.right:
-            return self.right.contains(value)
+        curr = self
+        while curr:
+            if value == curr.value:
+                return True
+            if value < curr.value:
+                curr = curr.left
+            else:
+                curr = curr.right
 
         return False
 
 
     def remove(self, value, parent = None):
-        if value < self.value and self.left:
-            self.left.remove(value, self)
-        elif value > self.value and self.right:
-            self.right.remove(value, self)
-        elif value == self.value:
-            if self.left and self.right:
-                self.value = self.right.get_min()
-                self.right.remove(self.value, self)
-            elif not parent:
-                if self.left:
-                    self.value = self.left.value
-                    self.right = self.left.right
-                    self.left = self.left.left
-                elif self.right:
-                    self.value = self.right.value
-                    self.left = self.right.left
-                    self.right = self.right.right
-            elif parent.left == self:
-                parent.left = self.left if self.left else self.right
-            elif parent.right == self:
-                parent.right = self.left if self.left else self.right
+        curr = self
+        while curr:
+            if value < curr.value:
+                parent = curr
+                curr = curr.left
+            elif value > curr.value:
+                parent = curr
+                curr = curr.right
+            else:
+                if curr.left and curr.right:
+                    curr.value = curr.right.get_min()
+                    curr.right.remove(curr.value, curr)
+                elif not parent:
+                    if curr.left:
+                        curr.value = curr.left.value
+                        curr.right = curr.left.right
+                        curr.left = curr.left.left
+                    elif curr.right:
+                        curr.value = curr.right.value
+                        curr.left = curr.right.left
+                        curr.right = curr.right.right
+                    else:
+                        pass
+                elif parent.left == curr:
+                    parent.left = curr.left if curr.left else curr.right
+                elif parent.right == curr:
+                    parent.right = curr.left if curr.left else curr.right
+                break
 
         return self
 
     def get_min(self):
-        if not self.left:
-            return self.value
-
-        return self.left.get_min()
+        curr = self
+        while curr.left:
+            curr = curr.left
+        return curr.value

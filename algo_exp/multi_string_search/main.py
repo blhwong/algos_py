@@ -16,19 +16,19 @@ class Trie:
 
 def search_trie(t, string):
     curr = t.root
-    found = True
+
     for char in string:
         if char not in curr:
-            found = False
-            break
+            return False
         curr = curr[char]
 
-    return found
+    return True
 
 def multiStringSearch(bigString, smallStrings):
-    bigStrings = bigString.split(' ')
-    prefix_trie = Trie(bigStrings)
-    suffix_trie = Trie([string[::-1] for string in bigStrings])
+    big_strings = bigString.split(' ')
+    prefix_trie = Trie(big_strings)
+    suffix_trie = Trie([string[::-1] for string in big_strings])
+
     ans = []
     for string in smallStrings:
         ans.append(search_trie(prefix_trie, string) or search_trie(suffix_trie, string[::-1]))

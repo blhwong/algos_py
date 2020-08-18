@@ -16,7 +16,6 @@ class BST:
                 return self.left.insert(value)
             else:
                 self.left = BST(value)
-
         else:
             if self.right:
                 return self.right.insert(value)
@@ -26,32 +25,32 @@ class BST:
         return self
 
     def contains(self, value):
-        if self.value == value:
+        if value == self.value:
             return True
 
-        if self.value < value and self.right:
-            return self.right.contains(value)
-
-        if self.value > value and self.left:
+        if value < self.value and self.left:
             return self.left.contains(value)
+
+        if value > self.value and self.right:
+            return self.right.contains(value)
 
         return False
 
 
     def remove(self, value, parent = None):
-        if self.value < value and self.right:
-            self.right.remove(value, self)
-        elif self.value > value and self.left:
+        if value < self.value and self.left:
             self.left.remove(value, self)
-        elif self.value == value:
+        elif value > self.value and self.right:
+            self.right.remove(value, self)
+        elif value == self.value:
             if self.left and self.right:
                 self.value = self.right.get_min()
                 self.right.remove(self.value, self)
             elif not parent:
                 if self.left:
                     self.value = self.left.value
-                    self.left = self.left.left
                     self.right = self.left.right
+                    self.left = self.left.left
                 elif self.right:
                     self.value = self.right.value
                     self.left = self.right.left
@@ -60,6 +59,7 @@ class BST:
                 parent.left = self.left if self.left else self.right
             elif parent.right == self:
                 parent.right = self.left if self.left else self.right
+
         return self
 
     def get_min(self):

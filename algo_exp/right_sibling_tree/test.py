@@ -1,4 +1,3 @@
-from unittest import TestCase, main
 from algo_exp.right_sibling_tree.main import rightSiblingTree, BinaryTree
 
 eight = BinaryTree(8)
@@ -17,25 +16,19 @@ three = BinaryTree(3, six, seven)
 one = BinaryTree(1, two, three)
 
 
-class TestSuite(TestCase):
-    def test_1(self):
-        rightSiblingTree(one)
-        self.assertEqual(one.right, None)
-        self.assertEqual(two.right, three)
-        self.assertEqual(three.right, None)
-        self.assertEqual(four.right, five)
-        self.assertEqual(five.right, six)
-        self.assertEqual(six.right, seven)
-        self.assertEqual(seven.right, None)
-        self.assertEqual(eight.right, nine)
-        self.assertEqual(nine.right, None)
-        self.assertEqual(ten.right, eleven)
-        self.assertEqual(eleven.right, None)
-        self.assertEqual(twelve.right, thirteen)
-        self.assertEqual(thirteen.right, None)
-        self.assertEqual(fourteen.right, None)
-
-
-
-if __name__ == '__main__':
-    main()
+def test_1():
+    rightSiblingTree(one)
+    assert one.right == None
+    assert two.right == three
+    assert three.right == None
+    assert four.right == five
+    assert five.right == six
+    assert six.right == seven
+    assert seven.right == None
+    assert eight.right == nine
+    assert nine.right == None
+    assert ten.right == eleven
+    assert eleven.right == None
+    assert twelve.right == thirteen
+    assert thirteen.right == None
+    assert fourteen.right == None

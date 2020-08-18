@@ -14,10 +14,9 @@ Output: [], [1], [5], [3], [1,5], [1,3], [5,3], [1,5,3]
 
 
 def find_subsets(nums):
-    subsets = []
-    subsets.append([])
-    for curr in nums:
-        for i in range(len(subsets)):
-            subsets.append(subsets[i] + [curr])
+    ans = [[]]
+    for num in nums:
+        for i in range(len(ans)):
+            ans.append(ans[i] + [num])
 
-    return subsets
+    return ans

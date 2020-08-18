@@ -1,3 +1,9 @@
+"""
+         1
+     2       3
+   4   5   6   7
+"""
+
 def maxPathSum(tree):
     def get_max_path(curr):
         if not curr:

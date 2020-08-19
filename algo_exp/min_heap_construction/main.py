@@ -37,9 +37,7 @@ class MinHeap:
     def siftDown(self, start, heap):
         curr_idx = start
         swap_idx = self.get_swap_idx(curr_idx, heap)
-        while swap_idx < len(heap):
-            if not self.compare(heap[swap_idx], heap[curr_idx]):
-                break
+        while swap_idx < len(heap) and self.compare(heap[swap_idx], heap[curr_idx]):
             heap[swap_idx], heap[curr_idx] = heap[curr_idx], heap[swap_idx]
             curr_idx = swap_idx
             swap_idx = self.get_swap_idx(curr_idx, heap)

@@ -1,15 +1,14 @@
 def subarraySort(array):
-    def is_out_of_order(i, num):
+    def is_out_of_order(i):
         if i == 0:
-            return not num <= array[i + 1]
-        elif i == len(array) - 1:
-            return not array[i - 1] <= num
-        return not (array[i] <= array[i + 1] and array[i - 1] <= array[i])
+            return not array[i] <= array[i + 1]
+        if i == len(array) - 1:
+            return not array[i - 1] <= array[i]
+        return not (array[i - 1] <= array[i] <= array[i + 1])
 
-    min_out_of_order = float('inf')
-    max_out_of_order = -float('inf')
+    min_out_of_order, max_out_of_order = float('inf'), -float('inf')
     for i in range(len(array)):
-        if is_out_of_order(i, array[i]):
+        if is_out_of_order(i):
             min_out_of_order = min(min_out_of_order, array[i])
             max_out_of_order = max(max_out_of_order, array[i])
 
@@ -22,6 +21,6 @@ def subarraySort(array):
         left += 1
 
     while array[right] >= max_out_of_order:
-        right -=1
+        right -= 1
 
     return [left, right]

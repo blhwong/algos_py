@@ -18,10 +18,8 @@ def get_swap_idx(i, end, heap):
 def sift_down(start, end, heap):
     curr_idx = start
     swap_idx = get_swap_idx(curr_idx, end, heap)
-    while swap_idx < end:
-        if not compare(heap[swap_idx], heap[curr_idx]):
-            break
-        heap[swap_idx], heap[curr_idx] = heap[curr_idx], heap[swap_idx]
+    while swap_idx < end and compare(heap[swap_idx], heap[curr_idx]):
+        heap[curr_idx], heap[swap_idx] = heap[swap_idx], heap[curr_idx]
         curr_idx = swap_idx
         swap_idx = get_swap_idx(curr_idx, end, heap)
 

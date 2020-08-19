@@ -1,23 +1,17 @@
-from unittest import TestCase, main
 from algo_exp.single_cycle_check.main import hasSingleCycle
 
 
-class TestSuite(TestCase):
-    def test_1(self):
-        self.assertTrue(hasSingleCycle([2, 3, 1, -4, -4, 2]))
+def test_1():
+    assert hasSingleCycle([2, 3, 1, -4, -4, 2]) is True
 
-    def test_2(self):
-        self.assertFalse(hasSingleCycle([2, 1, 1]))
+def test_2():
+    assert hasSingleCycle([2, 1, 1]) is False
 
-    def test_3(self):
-        self.assertTrue(hasSingleCycle([2, 2, -1]))
+def test_3():
+    assert hasSingleCycle([2, 2, -1]) is True
 
-    def test_3(self):
-        self.assertFalse(hasSingleCycle([1, 1, 0, 1, 1]))
+def test_4():
+    assert hasSingleCycle([1, 1, 0, 1, 1]) is False
 
-    def test_4(self):
-        self.assertFalse(hasSingleCycle([1, 1, 1, 1, 2]))
-
-
-if __name__ == '__main__':
-    main()
+def test_5():
+    assert hasSingleCycle([1, 1, 1, 1, 2]) is False

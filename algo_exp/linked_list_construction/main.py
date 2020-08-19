@@ -57,7 +57,7 @@ class DoublyLinkedList:
 
         curr = self.head
         count = 1
-        while curr and position != count:
+        while curr and count < position:
             curr = curr.next
             count += 1
 

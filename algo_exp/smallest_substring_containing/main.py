@@ -16,7 +16,6 @@ def smallestSubstringContaining(bigString, smallString):
     left_bound, right_bound = None, None
     count = 0
     for right, char in enumerate(bigString):
-        char = bigString[right]
         if char in target_table:
             if char not in curr:
                 curr[char] = 0

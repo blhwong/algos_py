@@ -12,7 +12,7 @@ def test_2():
     assert result == expected
 
 def test_3():
-    result = multiStringSearch("this ain't a big string", ['this', 'is', 'yo', 'a', 'bigger'])
+    result = multiStringSearch('this ain't a big string', ['this', 'is', 'yo', 'a', 'bigger'])
     expected = [True, True, False, True, False]
     assert result == expected
 

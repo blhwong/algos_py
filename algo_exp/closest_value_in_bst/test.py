@@ -1,4 +1,4 @@
-from algo_exp.closest_value_in_bst.main import findClosestValueInBst, findClosestValueInBstIterative
+from algo_exp.closest_value_in_bst.main import find_closest_value_in_bst, find_closest_value_in_bst_iterative
 from data_structures.tree_node import TreeNode
 
 
@@ -12,5 +12,5 @@ def test_1():
     root.right.left = TreeNode(13)
     root.right.right = TreeNode(22)
     root.right.left.right = TreeNode(14)
-    assert findClosestValueInBst(root, 12) == 13
-    assert findClosestValueInBstIterative(root, 12) == 13
+    assert find_closest_value_in_bst(root, 12) == 13
+    assert find_closest_value_in_bst_iterative(root, 12) == 13

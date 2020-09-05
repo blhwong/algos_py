@@ -1,4 +1,4 @@
-from algo_exp.branch_sums.main import branchSums
+from algo_exp.branch_sums.main import branch_sums
 from data_structures.tree_node import TreeNode
 
 
@@ -13,4 +13,4 @@ def test_1():
     root.left.right.left = TreeNode(10)
     root.right.left = TreeNode(6)
     root.right.right = TreeNode(7)
-    assert branchSums(root) == [15, 16, 18, 10, 11]
+    assert branch_sums(root) == [15, 16, 18, 10, 11]

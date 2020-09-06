@@ -16,6 +16,5 @@ class BST:
         pass
 
     def remove(self, value):
-        # Write your code here.
         # Do not edit the return statement of this method.
         return self

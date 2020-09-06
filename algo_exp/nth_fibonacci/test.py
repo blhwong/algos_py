@@ -1,8 +1,8 @@
-from algo_exp.nth_fibonacci.main import getNthFib
+from algo_exp.nth_fibonacci.main import get_nth_fib
 
 
 def test_1():
-    assert getNthFib(2) == 1
+    assert get_nth_fib(2) == 1
 
 def test_2():
-    assert getNthFib(6) == 5
+    assert get_nth_fib(6) == 5

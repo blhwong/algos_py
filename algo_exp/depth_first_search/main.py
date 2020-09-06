@@ -14,14 +14,4 @@ class Node:
         return self
 
     def depthFirstSearch(self, array):
-        def traverse(curr):
-            if not curr:
-                return
-
-            array.append(curr.name)
-
-            for child in curr.children:
-                traverse(child)
-
-        traverse(self)
-        return array
+        pass

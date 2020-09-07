@@ -1,4 +1,4 @@
-from algo_exp.invert_binary_tree.main import invertBinaryTree
+from algo_exp.invert_binary_tree.main import invert_binary_tree
 from data_structures.tree_node import TreeNode
 
 
@@ -21,5 +21,5 @@ def test_1():
     expected.right.right = TreeNode(4)
     expected.right.right.left = TreeNode(9)
     expected.right.right.right = TreeNode(8)
-    result = invertBinaryTree(tree)
+    result = invert_binary_tree(tree)
     assert TreeNode.compare(result, expected) is True

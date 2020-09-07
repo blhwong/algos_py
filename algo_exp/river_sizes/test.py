@@ -1,10 +1,10 @@
 from unittest import TestCase, main
-from algo_exp.river_sizes.main import riverSizes
+from algo_exp.river_sizes.main import river_sizes
 
 
 class TestSuite(TestCase):
     def test_1(self):
-        self.assertCountEqual(riverSizes([
+        self.assertCountEqual(river_sizes([
             [1, 0, 0, 1, 0],
             [1, 0, 1, 0, 0],
             [0, 0, 1, 0, 1],

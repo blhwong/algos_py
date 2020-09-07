@@ -18,6 +18,5 @@ def test_1():
     root.children[D].add_child('H')
     root.children[D].children[G].add_child('K')
     expected = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K']
-    array = []
-    root.breadth_first_search(array)
+    array = root.breadth_first_search([])
     assert array == expected

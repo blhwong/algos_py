@@ -1,8 +1,8 @@
-from algo_exp.min_height_bst.main import minHeightBst
+from algo_exp.min_height_bst.main import min_height_bst
 from data_structures.binary_search_tree import BST
 
 def test_1():
-    result = minHeightBst([1, 2, 5, 7, 10, 13, 14, 15, 22])
+    result = min_height_bst([1, 2, 5, 7, 10, 13, 14, 15, 22])
     expected = BST(10)
     expected.left = BST(2)
     expected.right = BST(14)

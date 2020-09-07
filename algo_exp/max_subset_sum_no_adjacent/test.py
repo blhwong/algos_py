@@ -1,5 +1,5 @@
-from algo_exp.max_subset_sum_no_adjacent.main import maxSubsetSumNoAdjacent
+from algo_exp.max_subset_sum_no_adjacent.main import max_subset_sum_no_adjacent
 
 
 def test_1():
-    assert maxSubsetSumNoAdjacent([75, 105, 120, 75, 90, 135]) == 330
+    assert max_subset_sum_no_adjacent([75, 105, 120, 75, 90, 135]) == 330

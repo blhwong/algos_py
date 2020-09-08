@@ -1,4 +1,4 @@
-from algo_exp.youngest_common_ancestor.main import AncestralTree, getYoungestCommonAncestor
+from algo_exp.youngest_common_ancestor.main import AncestralTree, get_youngest_common_ancestor
 
 
 def test_1():
@@ -19,4 +19,4 @@ def test_1():
     f.ancestor = c
     g = AncestralTree('G')
     g.ancestor = c
-    assert getYoungestCommonAncestor(a, e, i) == b
+    assert get_youngest_common_ancestor(a, e, i) == b

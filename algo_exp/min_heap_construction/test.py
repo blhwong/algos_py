@@ -13,3 +13,8 @@ def test_1():
     assert min_heap.peek() == 6
     min_heap.insert(87)
     assert min_heap.heap == [6, 7, 8, 24, 8, 24, 24, 391, 76, 56, 12, 41, 48, 87]
+
+def test_2():
+    array = [2, 3, 1]
+    min_heap = MinHeap(array)
+    assert min_heap.peek() == 1

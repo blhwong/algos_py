@@ -3,8 +3,7 @@ from typing import List
 
 class Solution:
 
-    def justify(self, max_width, line, last_line):
-        word_count, words = line
+    def justify(self, max_width, word_count, words, last_line = False):
         if last_line:
             return ' '.join(words).ljust(max_width)
         if len(words) == 1:
@@ -26,18 +25,17 @@ class Solution:
 
 
     def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
-        lines = []
+        ans = []
         line = []
         word_count = 0
         for word in words:
             if word_count + len(line) + len(word) > maxWidth:
-                lines.append((word_count, line))
+                ans.append(self.justify(maxWidth, word_count, line))
                 line = [word]
                 word_count = len(word)
             else:
                 line.append(word)
                 word_count += len(word)
 
-        lines.append((word_count, line))
-        ans = [self.justify(maxWidth, line, idx == len(lines) - 1) for idx, line in enumerate(lines)]
+        ans.append(self.justify(maxWidth, word_count, line, True))
         return ans

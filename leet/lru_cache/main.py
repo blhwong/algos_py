@@ -38,7 +38,7 @@ class DoublyLinkedList:
     def remove_tail(self):
         if not self.tail:
             return
-        if self.tail == self.head:
+        if self.head == self.tail:
             self.head, self.tail = None, None
             return
         self.tail = self.tail.prev
@@ -55,8 +55,9 @@ class LRUCache:
     def get(self, key: int) -> int:
         if key not in self.storage:
             return -1
-        self.list.set_head(self.storage[key])
-        return self.storage[key].value
+        node = self.storage[key]
+        self.list.set_head(node)
+        return node.value
 
     def put(self, key: int, value: int) -> None:
         node = None

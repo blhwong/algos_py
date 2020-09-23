@@ -1,3 +1,6 @@
+from heapq import heappush, heappop
+
+
 class Interval:
 
     def __init__(self, start: int = None, end: int = None):
@@ -13,36 +16,31 @@ class Interval:
 
 class Solution:
 
-    def merge(self, intervals, interval):
-        i = 0
+    def employeeFreeTime(self, schedule: '[[Interval]]') -> '[Interval]':
         merged = []
-        while i < len(intervals) and intervals[i].end < interval.start:
-            merged.append(intervals[i])
-            i += 1
+        min_heap = []
 
-        start, end = interval.start, interval.end
+        for i, intervals in enumerate(schedule):
+            heappush(min_heap, (intervals[0].start, 0, i, intervals))
 
-        if i < len(intervals):
-            start = min(start, intervals[i].start)
+        _, i, ec, source = heappop(min_heap)
+        first = source[i]
+        start, end = first.start, first.end
+        if i + 1 < len(source):
+            heappush(min_heap, (source[i + 1].start, i + 1, ec, source))
 
-        for i in range(i, len(intervals)):
-            if intervals[i].start > end:
+        while min_heap:
+            _, i, ec, source = heappop(min_heap)
+            curr = source[i]
+            if i + 1 < len(source):
+                heappush(min_heap, (source[i + 1].start, i + 1, ec, source))
+            if curr.start > end:
                 merged.append(Interval(start, end))
-                start, end = intervals[i].start, intervals[i].end
+                start, end = curr.start, curr.end
             else:
-                end = max(end, intervals[i].end)
+                end = max(end, curr.end)
 
         merged.append(Interval(start, end))
-
-        return merged
-
-
-    def employeeFreeTime(self, schedule: '[[Interval]]') -> '[Interval]':
-        merged = schedule[0]
-
-        for i in range(1, len(schedule)):
-            for interval in schedule[i]:
-                merged = self.merge(merged, interval)
 
         ans = []
 

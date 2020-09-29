@@ -5,6 +5,7 @@ from algo_exp.suffix_trie_construction.main import SuffixTrie
 trie = SuffixTrie('babc')
 
 class TestSuite(TestCase):
+
     def test_1(self):
         self.assertDictEqual(trie.root, {
             'c': { '*': True },

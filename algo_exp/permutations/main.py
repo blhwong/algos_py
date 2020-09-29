@@ -1,2 +1,2 @@
-def getPermutations(array):
+def get_permutations(array):
     pass

@@ -9,8 +9,8 @@ class MinMaxStack:
     def push(self, number):
         pass
 
-    def getMin(self):
+    def get_min(self):
         pass
 
-    def getMax(self):
+    def get_max(self):
         pass

@@ -1,2 +1,2 @@
-def searchInSortedMatrix(matrix, target):
+def search_in_sorted_matrix(matrix, target):
     pass

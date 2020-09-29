@@ -1,11 +1,11 @@
-from algo_exp.balanced_brackets.main import balancedBrackets
+from algo_exp.balanced_brackets.main import balanced_brackets
 
 
 def test_1():
-    assert balancedBrackets('([])(){}(())()()') is True
+    assert balanced_brackets('([])(){}(())()()') is True
 
 def test_2():
-    assert balancedBrackets('[(])') is False
+    assert balanced_brackets('[(])') is False
 
 def test_3():
-    assert balancedBrackets('(a)') is True
+    assert balanced_brackets('(a)') is True

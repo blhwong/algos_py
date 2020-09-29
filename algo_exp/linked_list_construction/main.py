@@ -12,26 +12,26 @@ class DoublyLinkedList:
         self.head = None
         self.tail = None
 
-    def setHead(self, node):
+    def set_head(self, node):
         pass
 
-    def setTail(self, node):
+    def set_tail(self, node):
         pass
 
-    def insertBefore(self, node, nodeToInsert):
+    def insert_before(self, node, node_to_insert):
         pass
 
-    def insertAfter(self, node, nodeToInsert):
+    def insert_after(self, node, node_to_insert):
         pass
 
-    def insertAtPosition(self, position, nodeToInsert):
+    def insert_at_position(self, position, node_to_insert):
         pass
 
-    def removeNodesWithValue(self, value):
+    def remove_nodes_with_value(self, value):
         pass
 
     def remove(self, node):
         pass
 
-    def containsNodeWithValue(self, value):
+    def contains_node_with_value(self, value):
         pass

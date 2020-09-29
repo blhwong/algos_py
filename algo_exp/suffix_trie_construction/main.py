@@ -2,7 +2,7 @@ class SuffixTrie:
 
     def __init__(self, string):
         self.root = {}
-        self.endSymbol = "*"
+        self.end_symbol = "*"
         self.populate_suffix_trie_from(string)
 
     def populate_suffix_trie_from(self, string):

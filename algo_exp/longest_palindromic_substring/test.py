@@ -1,11 +1,13 @@
-from algo_exp.longest_palindromic_substring.main import longestPalindromicSubstring
+from algo_exp.longest_palindromic_substring.main import longest_palindromic_substring
 
 
 def test_1():
-    assert longestPalindromicSubstring('abaxyzzyxf') == 'xyzzyx'
+    assert longest_palindromic_substring('abaxyzzyxf') == 'xyzzyx'
+
 
 def test_2():
-    assert longestPalindromicSubstring('a') == 'a'
+    assert longest_palindromic_substring('a') == 'a'
+
 
 def test_3():
-    assert longestPalindromicSubstring('') == ''
+    assert longest_palindromic_substring('') == ''

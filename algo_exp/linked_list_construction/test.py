@@ -69,3 +69,12 @@ def test_1():
     assert getNodeValuesTailToHead(linked_list) == [6, 5, 1, 4]
 
     assert linked_list.containsNodeWithValue(5) is True
+
+
+def test_2():
+    one = Node(1)
+    linked_list = DoublyLinkedList()
+    linked_list.insertAtPosition(1, one)
+
+    assert getNodeValuesHeadToTail(linked_list) == [1]
+    assert getNodeValuesTailToHead(linked_list) == [1]

@@ -3,28 +3,28 @@ from algo_exp.lru_cache.main import LRUCache
 
 def test_1():
     c = LRUCache(3)
-    c.insertKeyValuePair('b', 2)
-    c.insertKeyValuePair('a', 1)
-    c.insertKeyValuePair('c', 3)
-    assert c.getMostRecentKey() == 'c'
-    assert c.getValueFromKey('a') == 1
-    assert c.getMostRecentKey() == 'a'
-    c.insertKeyValuePair('d', 4)
-    assert c.getValueFromKey('b') == None
-    c.insertKeyValuePair('a', 5)
-    assert c.getValueFromKey('a') == 5
+    c.insert_key_value_pair('b', 2)
+    c.insert_key_value_pair('a', 1)
+    c.insert_key_value_pair('c', 3)
+    assert c.get_most_recent_key() == 'c'
+    assert c.get_value_from_key('a') == 1
+    assert c.get_most_recent_key() == 'a'
+    c.insert_key_value_pair('d', 4)
+    assert c.get_value_from_key('b') == None
+    c.insert_key_value_pair('a', 5)
+    assert c.get_value_from_key('a') == 5
 
 def test_2():
     c = LRUCache(1)
-    assert c.getValueFromKey('a') == None
-    c.insertKeyValuePair('a', 1)
-    assert c.getValueFromKey('a') == 1
-    c.insertKeyValuePair('a', 9001)
-    assert c.getValueFromKey('a') == 9001
-    c.insertKeyValuePair('b', 2)
-    assert c.getValueFromKey('a') == None
-    assert c.getValueFromKey('b') == 2
-    c.insertKeyValuePair('c', 3)
-    assert c.getValueFromKey('a') == None
-    assert c.getValueFromKey('b') == None
-    assert c.getValueFromKey('c') == 3
+    assert c.get_value_from_key('a') == None
+    c.insert_key_value_pair('a', 1)
+    assert c.get_value_from_key('a') == 1
+    c.insert_key_value_pair('a', 9001)
+    assert c.get_value_from_key('a') == 9001
+    c.insert_key_value_pair('b', 2)
+    assert c.get_value_from_key('a') == None
+    assert c.get_value_from_key('b') == 2
+    c.insert_key_value_pair('c', 3)
+    assert c.get_value_from_key('a') == None
+    assert c.get_value_from_key('b') == None
+    assert c.get_value_from_key('c') == 3

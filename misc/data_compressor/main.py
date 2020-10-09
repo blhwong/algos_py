@@ -27,12 +27,11 @@ class DataCompressor:
         i = 2
         while i < len(data):
             idx = compressed[-1]
-            coord = data[idx]
-            x1, y1 = coord
+            x1, y1 = data[idx]
             x2, y2 = data[i]
             m = self.get_m(y1, y2, x1, x2)
-            within_margin = True
             b = self.get_b(y1, m, x1)
+            within_margin = True
             for j in reversed(range(idx, i)):
                 x, y = data[j]
                 y_prime = self.get_y(m, x, b)
@@ -47,7 +46,6 @@ class DataCompressor:
                 i += 1
 
         compressed.append(next_point)
-
         return [data[i] for i in compressed]
 
 

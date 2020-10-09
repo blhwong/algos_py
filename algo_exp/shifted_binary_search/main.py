@@ -7,7 +7,7 @@ L                M                  R
 ** Only apply binary search logic on the sorted side
 """
 
-def shiftedBinarySearch(array, target):
+def shifted_binary_search(array, target):
     left, right = 0, len(array) - 1
     ans = -1
     while left <= right:
@@ -15,13 +15,14 @@ def shiftedBinarySearch(array, target):
 
         if array[mid] == target:
             return mid
-        elif array[left] <= array[mid]:
-            if array[mid] > target and array[left] <= target:
+
+        if array[left] <= array[mid]:
+            if array[left] <= target < array[mid]:
                 right = mid - 1
             else:
                 left = mid + 1
         else:
-            if array[mid] < target and array[right] >= target:
+            if array[mid] < target <= array[right]:
                 left = mid + 1
             else:
                 right = mid - 1

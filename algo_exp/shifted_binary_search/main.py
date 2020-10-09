@@ -17,12 +17,12 @@ def shifted_binary_search(array, target):
             return mid
 
         if array[left] <= array[mid]:
-            if array[left] <= target < array[mid]:
+            if array[left] <= target <= array[mid]:
                 right = mid - 1
             else:
                 left = mid + 1
         else:
-            if array[mid] < target <= array[right]:
+            if array[mid] <= target <= array[right]:
                 left = mid + 1
             else:
                 right = mid - 1

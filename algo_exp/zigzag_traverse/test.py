@@ -1,8 +1,8 @@
-from algo_exp.zigzag_traverse.main import zigzagTraverse
+from algo_exp.zigzag_traverse.main import zig_zag_traverse
 
 
 def test_1():
-    result = zigzagTraverse([
+    result = zig_zag_traverse([
         [1, 3, 4, 10],
         [2, 5, 9, 11],
         [6, 8, 12, 15],

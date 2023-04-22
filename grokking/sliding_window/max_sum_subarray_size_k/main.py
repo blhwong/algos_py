@@ -12,4 +12,11 @@ Explanation: Subarray with maximum sum is [3, 4].
 """
 
 def max_sub_array_of_size_k(k, arr):
-    pass
+    ans = 0
+    curr_max = 0
+    for end in range(len(arr)):
+        curr_max += arr[end]
+        if end >= k - 1:
+            ans = max(ans, curr_max)
+            curr_max -= arr[end - k + 1]
+    return ans

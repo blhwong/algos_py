@@ -21,5 +21,22 @@ Output: 5
 Explanation: The longest substrings with no more than '3' distinct characters are "cbbeb" & "bbebi".
 """
 
-def longest_substring_with_k_distinct(str, k):
-    pass
+def longest_substring_with_k_distinct(str1, k):
+    ans = 0
+    chars = {}
+    start = 0
+
+    for end in range(len(str1)):
+        if str1[end] not in chars:
+            chars[str1[end]] = 0
+        chars[str1[end]] += 1
+
+        while len(chars) > k:
+            chars[str1[start]] -= 1
+            if chars[str1[start]] == 0:
+                del chars[str1[start]]
+            start += 1
+
+        ans = max(ans, end - start + 1)
+
+    return ans

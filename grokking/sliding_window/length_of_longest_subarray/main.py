@@ -16,4 +16,18 @@ Explanation: Replace the '0' at index 6, 9, and 10 to have the longest contiguou
 
 
 def length_of_longest_subarray(arr, k):
-    pass
+    ans = 0
+    curr_max = 0
+    start = 0
+    for end in range(len(arr)):
+        if arr[end] > 0:
+            curr_max += 1
+
+        if end - start + 1 - curr_max > k:
+            if arr[start] > 0:
+                curr_max -= 1
+            start += 1
+
+        ans = max(ans, end - start + 1)
+
+    return ans

@@ -23,4 +23,21 @@ Output: 7
 """
 
 def fruits_into_baskets(fruits):
-    pass
+    ans = 0
+    fruit_map = {}
+    start = 0
+
+    for end in range(len(fruits)):
+        if fruits[end] not in fruit_map:
+            fruit_map[fruits[end]] = 0
+        fruit_map[fruits[end]] += 1
+
+        while len(fruit_map) > 2:
+            fruit_map[fruits[start]] -= 1
+            if fruit_map[fruits[start]] == 0:
+                del fruit_map[fruits[start]]
+            start += 1
+
+        ans = max(ans, end - start + 1)
+
+    return ans

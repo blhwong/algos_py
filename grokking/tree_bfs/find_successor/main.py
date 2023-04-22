@@ -6,16 +6,4 @@ Given a binary tree and a node, find the level order successor of the given node
 from collections import deque
 
 def find_successor(root, key):
-    q = deque()
-    q.append(root)
-    while q:
-        curr = q.popleft()
-        if curr.left:
-            q.append(curr.left)
-        if curr.right:
-            q.append(curr.right)
-
-        if curr.val == key:
-            break
-
-    return q[0] if q else None
+    pass

@@ -13,30 +13,4 @@ Explanation: There are two unique triplets whose sum is equal to zero.
 
 
 def search_triplets(arr):
-    triplets = []
-    def pair_with_targetsum(arr, targetsum, left, triplets):
-        right = len(arr) - 1
-        while left < right:
-            curr = arr[left] + arr[right]
-            if curr == targetsum:
-                triplets.append([-targetsum, arr[left], arr[right]])
-                curr_left, curr_right = arr[left], arr[right]
-                while curr_left == arr[left] and left < right:
-                    left += 1
-                while curr_right == arr[right] and left < right:
-                    right -= 1
-            elif curr < targetsum:
-                left += 1
-            else:
-                right -= 1
-        return
-
-    arr.sort()
-
-    for i in range(len(arr)):
-        if i > 0 and arr[i] == arr[i - 1]:
-            continue
-        pair_with_targetsum(arr, -arr[i], i + 1, triplets)
-
-
-    return triplets
+    pass

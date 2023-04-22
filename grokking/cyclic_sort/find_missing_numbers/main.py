@@ -18,17 +18,4 @@ Output: 4
 """
 
 def find_missing_numbers(nums):
-    missing_numbers = []
-    i = 0
-    while i < len(nums):
-        j = nums[i] - 1
-        if nums[i] != nums[j]:
-            nums[i], nums[j] = nums[j], nums[i]
-        else:
-            i += 1
-
-    for idx, val in enumerate(nums):
-        if val != idx + 1:
-            missing_numbers.append(idx + 1)
-
-    return missing_numbers
+    pass

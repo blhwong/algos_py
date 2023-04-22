@@ -19,27 +19,7 @@ Output: [1,3,5], [1,5,3], [3,1,5], [3,5,1], [5,1,3], [5,3,1]
 """
 
 def find_permutations(nums):
-    result = [[]]
-    for curr in nums:
-        tmp = []
-        for subset in result:
-            for i in range(len(subset) + 1):
-                tmp.append(subset[:i] + [curr] + subset[i:])
-
-            result = tmp
-
-
-    return result
+    pass
 
 def find_permutations_recursive(nums):
-    result = []
-    def permute(curr, nums_left):
-        if len(curr) == len(nums):
-            result.append(curr)
-            return
-
-        for idx, val in enumerate(nums_left):
-            permute(curr + [val], nums_left[0:idx] + nums_left[idx + 1:])
-
-    permute([], nums)
-    return result
+    pass

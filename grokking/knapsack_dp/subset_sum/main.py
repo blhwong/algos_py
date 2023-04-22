@@ -23,19 +23,4 @@ The given set does not have any subset whose sum is equal to '6'.
 """
 
 def has_sum(nums, s):
-    dp = [[False] * (s + 1) for _ in range(len(nums))]
-
-    for i in range(len(nums)):
-        dp[i][0] = True
-
-    for j in range(s + 1):
-        dp[0][j] = nums[0] == j
-
-    for i in range(1, len(nums)):
-        for j in range(1, s + 1):
-            if dp[i - 1][j]:
-                dp[i][j] = dp[i - 1][j]
-            elif nums[i] <= j:
-                dp[i][j] = dp[i - 1][j - nums[i]]
-
-    return dp[-1][s]
+    pass

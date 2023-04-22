@@ -23,20 +23,4 @@ from data_structures.interval import Interval
 
 
 def merge(intervals):
-    merged = []
-    sorted_intervals = sorted(intervals, key=lambda x: x.start)
-    start = sorted_intervals[0].start
-    end = sorted_intervals[0].end
-    for i in range(1, len(sorted_intervals)):
-        curr = sorted_intervals[i]
-        if curr.start < end:
-            end = max(end, curr.end)
-        else:
-            merged.append(Interval(start, end))
-            start = curr.start
-            end = curr.end
-
-    merged.append(Interval(start, end))
-
-
-    return merged
+    pass

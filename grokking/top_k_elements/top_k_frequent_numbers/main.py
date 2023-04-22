@@ -18,14 +18,4 @@ from heapq import *
 
 
 def find_k_frequent_numbers(nums, k):
-    ans = []
-    freq = {}
-    for num in nums:
-        if num not in freq:
-            freq[num] = 0
-        freq[num] += 1
-
-    for num, count in freq.items():
-        heappush(ans, (-count, num))
-
-    return [num for idx, (count, num) in enumerate(ans) if idx < k]
+    pass

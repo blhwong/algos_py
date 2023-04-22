@@ -20,49 +20,7 @@ between the sum of numbers is '92'. Here are the two subsets: {1, 3, 4} & {100}.
 """
 
 def get_minimum_subset_difference_recursive(nums):
-    def get_diff(s, curr_idx, dp):
-        if curr_idx >= len(nums):
-            return s
-        if s == 0:
-            return 0
-
-        s_idx = int(s * 2)
-
-        if dp[curr_idx][s_idx] is not None:
-            return dp[curr_idx][s_idx]
-
-        part1 = float('inf')
-        if nums[curr_idx] <= s:
-            part1 = get_diff(s - nums[curr_idx], curr_idx + 1, dp)
-
-        part2 = get_diff(s, curr_idx + 1, dp)
-        dp[curr_idx][s_idx] = min(part1, part2)
-        return min(part1, part2)
-
-    total_sum = sum(nums)
-    dp = [[None] * (total_sum + 1) for _ in range(len(nums))]
-    return get_diff(total_sum / 2, 0, dp) * 2
-
+    pass
 
 def get_minimum_subset_difference_iterative(nums):
-    total_sum = sum(nums)
-    s = int(total_sum / 2)
-    dp = [[False] * (s + 1) for _ in range(len(nums))]
-
-    for i in range(len(nums)):
-        dp[i][0] = True
-
-    for j in range(s + 1):
-        dp[0][j] = nums[0] == j
-
-    for i in range(1, len(nums)):
-        for j in range(1, s + 1):
-            if dp[i - 1][j]:
-                dp[i][j] = dp[i - 1][j]
-            elif nums[i] <= j:
-                dp[i][j] = dp[i - 1][j - nums[i]]
-
-
-    for j in range(s, -1, -1):
-        if dp[-1][j]:
-            return abs(2 * j - total_sum)
+    pass

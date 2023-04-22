@@ -14,15 +14,4 @@ Output: false (12 is not a happy number)
 
 
 def find_happy_number(num):
-    def get_next(num):
-        return sum(int(i) ** 2 for i in list(str(num)))
-
-    fast = num
-    slow = num
-    while fast != 1 and slow != 1:
-        slow = get_next(slow)
-        fast = get_next(get_next(fast))
-        if slow == fast:
-            return False
-
-    return True
+    pass

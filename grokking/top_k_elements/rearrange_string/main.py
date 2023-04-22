@@ -23,29 +23,4 @@ from heapq import *
 
 
 def rearrange_string(str):
-    max_heap = []
-
-    freq = {}
-
-    for char in str:
-        if char not in freq:
-            freq[char] = 0
-        freq[char] += 1
-
-    for char, count in freq.items():
-        heappush(max_heap, (-count, char))
-
-    ans = ''
-    prev_char, prev_freq = None, 0
-    while max_heap:
-        count, char = heappop(max_heap)
-
-        if prev_char and prev_freq > 0:
-            heappush(max_heap, (-prev_freq, prev_char))
-        ans += char
-        prev_char = char
-        prev_freq = -count - 1
-
-
-    return ans if len(ans) == len(str) else ''
-
+    pass

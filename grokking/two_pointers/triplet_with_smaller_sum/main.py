@@ -17,22 +17,4 @@ Explanation: There are four triplets whose sum is less than the target:
 
 
 def triplet_with_smaller_sum(arr, target):
-    arr.sort()
-    ans = 0
-
-    def pair_with_targetsum(arr, targetsum, left):
-        count = 0
-        right = len(arr) - 1
-        while left < right:
-            if arr[left] + arr[right] < targetsum:
-                count += right - left
-                left += 1
-            else:
-                right -= 1
-
-        return count
-
-    for i in range(len(arr) - 2):
-        ans += pair_with_targetsum(arr, target - arr[i], i + 1)
-
-    return ans
+    pass

@@ -21,26 +21,4 @@ Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating subst
 
 
 def length_of_longest_substring(str, k):
-    ans = 0
-    start = 0
-    tracker = {}
-    curr_max = 0
-    for end in range(len(str)):
-        letter = str[end]
-
-        if letter not in tracker:
-            tracker[letter] = 0
-        tracker[letter] += 1
-
-        curr_max = max(curr_max, tracker[letter])
-
-        if end - start + 1 - curr_max > k:
-            left = str[start]
-            tracker[left] -= 1
-            start += 1
-
-
-        ans = max(ans, end - start + 1)
-
-
-    return ans
+    pass

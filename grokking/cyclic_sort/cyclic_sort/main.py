@@ -20,15 +20,4 @@ Output: [1, 2, 3, 4, 5, 6]
 
 
 def cyclic_sort(nums):
-    def swap(i, j):
-        nums[i], nums[j] = nums[j], nums[i]
-
-    i = 0
-    while i < len(nums):
-        curr = nums[i]
-        j = nums[i] - 1
-        if nums[i] != nums[j]:
-            swap(i, j)
-        else:
-            i += 1
-
+    pass

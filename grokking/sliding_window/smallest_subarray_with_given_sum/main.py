@@ -15,15 +15,4 @@ Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 
 """
 
 def smallest_subarray_with_given_sum(s, arr):
-    ans = float('infinity')
-    running_sum = 0
-    start = 0
-
-    for end in range(len(arr)):
-        running_sum += arr[end]
-        while running_sum >= s:
-            ans = min(ans, end - start + 1)
-            running_sum -= arr[start]
-            start += 1
-
-    return ans if ans != float('infinity') else 0
+    pass

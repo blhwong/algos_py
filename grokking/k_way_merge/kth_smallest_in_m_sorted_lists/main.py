@@ -18,21 +18,4 @@ Explanation: The 3rd smallest number among all the arrays is 7.
 from heapq import *
 
 def find_Kth_smallest(lists, k):
-    min_heap = []
-
-    for l in lists:
-        start = 0
-        heappush(min_heap, (l[0], start, l))
-
-    ans = -1
-    count = 0
-    while min_heap and count < k:
-        val, idx, l = heappop(min_heap)
-        ans = val
-        next_idx = idx + 1
-        if next_idx < len(l):
-            heappush(min_heap, (l[next_idx], next_idx, l))
-
-        count += 1
-
-    return ans
+    pass

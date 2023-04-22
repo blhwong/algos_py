@@ -29,22 +29,4 @@ After selecting the three projects, our total capital will be 8 (1+2+5).
 from heapq import *
 
 def find_maximum_capital(capital, profits, number_of_projects, initial_capital):
-    min_heap = []
-    max_heap = []
-
-    for idx, val in enumerate(capital):
-        heappush(min_heap, (val, idx))
-
-    ans = initial_capital
-
-    for _ in range(number_of_projects):
-        while min_heap and min_heap[0][0] <= ans:
-            c, i = heappop(min_heap)
-            heappush(max_heap, (-profits[i], i))
-
-        if not max_heap:
-            break
-
-        ans += -heappop(max_heap)[0]
-
-    return ans
+    pass

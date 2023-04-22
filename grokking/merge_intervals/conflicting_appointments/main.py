@@ -20,9 +20,4 @@ Explanation: Since [4,5] and [3,6] overlap, a person cannot attend both of these
 
 
 def can_attend_all_appointments(intervals):
-    sorted_intervals = sorted(intervals, key=lambda x:x[0])
-    start, end = 0, 1
-    for i in range(1, len(sorted_intervals)):
-        if sorted_intervals[i][start] < sorted_intervals[i - 1][end]:
-            return False
-    return True
+    pass

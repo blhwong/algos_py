@@ -21,26 +21,4 @@ Explanation: The triplet[1, 1, 1] has the closest sum to the target.
 
 
 def triplet_sum_close_to_target(arr, target_sum):
-    arr.sort()
-    min_diff = float('inf')
-
-    for i in range(len(arr) - 2):
-        left = i + 1
-        right = len(arr) - 1
-
-        while left < right:
-            diff = target_sum - arr[i] - arr[left] - arr[right]
-
-            if diff == 0:
-                return 0
-
-            if abs(diff) <= abs(min_diff):
-                min_diff = abs(diff)
-
-            if diff > 0:
-                left += 1
-            else:
-                right -= 1
-
-
-    return target_sum - min_diff
+    pass

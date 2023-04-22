@@ -45,26 +45,4 @@ There are other valid topological ordering of the graph too.
 from collections import deque
 
 def topological_sort(vertices, edges):
-    sort_order = []
-    adjacency_list = {v: [] for v in range(vertices)}
-    degree_list = {v: 0 for v in range(vertices)}
-    for edge in edges:
-        v, e = edge
-        adjacency_list[v].append(e)
-        degree_list[e] += 1
-
-    sources = deque()
-    for v, degree in degree_list.items():
-        if degree == 0:
-            sources.append(v)
-
-    while sources:
-        v = sources.popleft()
-        sort_order.append(v)
-        children = adjacency_list[v]
-        for child in children:
-            degree_list[child] -= 1
-            if degree_list[child] == 0:
-                sources.append(child)
-
-    return sort_order
+    pass

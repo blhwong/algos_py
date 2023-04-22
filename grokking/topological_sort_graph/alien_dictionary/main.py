@@ -41,38 +41,4 @@ From the above five points, we can conclude that the correct character order is:
 from collections import deque
 
 def find_order(words):
-    ans = ''
-    char_list = set()
-
-    for word in words:
-        for char in word:
-            char_list.add(char)
-
-    adjacency_list = {v: [] for v in char_list}
-    degree_list = {v: 0 for v in char_list}
-
-    for i in range(len(words) - 1):
-        word1, word2 = words[i], words[i + 1]
-        for j in range(0, min(len(word1), len(word2))):
-            parent, child = word1[j], word2[j]
-            if parent != child:
-                adjacency_list[parent].append(child)
-                degree_list[child] += 1
-                break
-
-    sources = deque()
-    for v, degree in degree_list.items():
-        if degree == 0:
-            sources.append(v)
-
-    while sources:
-        v = sources.popleft()
-        ans += v
-        children = adjacency_list[v]
-        for child in children:
-            degree_list[child] -= 1
-            if degree_list[child] == 0:
-                sources.append(child)
-
-
-    return ans
+    pass

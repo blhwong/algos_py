@@ -23,24 +23,4 @@ Output: 7
 """
 
 def fruits_into_baskets(fruits):
-    ans = 0
-    start = 0
-    basket = {}
-
-    for end in range(len(fruits)):
-        fruit = fruits[end]
-
-        if fruit not in basket:
-            basket[fruit] = 0
-        basket[fruit] += 1
-
-        while len(basket) > 2:
-            left = fruits[start]
-            basket[left] -= 1
-            if basket[left] == 0:
-                del basket[left]
-            start += 1
-
-        ans = max(ans, end - start + 1)
-
-    return ans
+    pass

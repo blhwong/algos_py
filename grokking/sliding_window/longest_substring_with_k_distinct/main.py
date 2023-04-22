@@ -22,24 +22,4 @@ Explanation: The longest substrings with no more than '3' distinct characters ar
 """
 
 def longest_substring_with_k_distinct(str, k):
-    ans = 0
-    start = 0
-    tracker = {}
-    for end in range(len(str)):
-        i = str[end]
-        if i not in tracker:
-            tracker[i] = 0
-        tracker[i] += 1
-
-
-        while len(tracker) > k:
-            first = str[start]
-            tracker[first] -= 1
-            start += 1
-            if tracker[first] == 0:
-                del tracker[first]
-
-
-        ans = max(ans, end - start + 1)
-
-    return ans
+    pass

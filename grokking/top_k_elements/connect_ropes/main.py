@@ -22,15 +22,4 @@ Explanation: First connect 1+2(=3), then 3+3(=6), 6+5(=11), 11+11(=22). Total co
 from heapq import *
 
 def minimum_cost_to_connect_ropes(rope_lengths):
-    result = rope_lengths.copy()
-
-    heapify(result)
-
-    ans = 0
-
-    while len(result) > 1:
-        curr = (heappop(result) + heappop(result))
-        ans += curr
-        heappush(result, curr)
-
-    return ans
+    pass

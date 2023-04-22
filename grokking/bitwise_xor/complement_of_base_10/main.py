@@ -20,10 +20,4 @@ Explanation: 10 is 1010 in binary, its complement is 0101 in binary, which is 5 
 
 
 def calculate_bitwise_complement(n):
-    bit_count, i = 0, n
-    while i > 0:
-        bit_count += 1
-        i = i >> 1
-
-    mask = pow(2, bit_count) - 1
-    return n ^ mask
+    pass

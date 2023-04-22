@@ -18,46 +18,7 @@ Output: "code", "cod1", "co1e", "co2", "c1de", "c1d1", "c2e", "c3", "1ode", "1od
 from collections import deque
 
 def generate_generalized_abbreviation(word):
-    result = []
-    q = deque()
-    q.append(['', 0, 0])
-    while q:
-        curr, start, count = q.popleft()
-        if start == len(word):
-            if count != 0:
-                curr += str(count)
-            result.append(curr)
-        else:
-            q.append([curr, start + 1, count + 1])
-
-            if count != 0:
-                curr += str(count)
-
-            new = curr + word[start]
-            q.append([new, start + 1, 0])
-
-    return result
-
+    pass
 
 def generate_generalized_abbreviation_recursive(word):
-    result = []
-
-    def generate(curr, start, count):
-        if start == len(word):
-            if count != 0:
-                curr += str(count)
-            result.append(curr)
-            return
-
-        generate(curr, start + 1, count + 1)
-
-        if count != 0:
-            curr += str(count)
-        new = curr + word[start]
-
-        generate(new, start + 1, 0)
-
-
-    generate('', 0, 0)
-
-    return result
+    pass

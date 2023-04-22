@@ -43,19 +43,4 @@ class Point:
 
 
 def find_closest_points(points, k):
-    result = []
-
-    def get_distance(point):
-        return (point.x ** 2 + point.y ** 2) ** 0.5
-
-    for i in range(k):
-        element = (-get_distance(points[i]), points[i])
-        heappush(result, element)
-
-    for i in range(1, len(points)):
-        point = points[i]
-        distance = get_distance(point)
-        if distance < -result[0][0]:
-            heappushpop(result, (-distance, point))
-
-    return [point for distance, point in result]
+    pass

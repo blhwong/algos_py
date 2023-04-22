@@ -20,23 +20,4 @@ Output: [-1, -1]
 
 
 def find_range(arr, key):
-    def search(find_max):
-        low, high = 0, len(arr) - 1
-        ans = -1
-        while low <= high:
-            mid = (low + high) // 2
-            if arr[mid] == key:
-                ans = mid
-                if find_max:
-                    low = mid + 1
-                else:
-                    high = mid - 1
-            elif arr[mid] < key:
-                low = mid + 1
-            else:
-                high = mid - 1
-
-        return ans
-
-
-    return [search(False), search(True)]
+    pass

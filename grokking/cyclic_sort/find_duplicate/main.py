@@ -18,45 +18,8 @@ Output: 4
 
 
 def find_duplicate(nums):
-    i = 0
-    while i < len(nums):
-        if nums[i] != i + 1:
-            j = nums[i] - 1
-            if nums[i] != nums[j]:
-                nums[i], nums[j] = nums[j], nums[i]
-            else:
-                return nums[i]
-        else:
-            i += 1
-
-    return -1
+    pass
 
 
 def find_duplicate_cycle(nums):
-    slow = nums[0]
-    fast = nums[nums[0]]
-
-    while slow != fast:
-        slow = nums[slow]
-        fast = nums[nums[fast]]
-
-
-    curr = nums[nums[slow]]
-    cycle_length = 1
-    while curr != nums[slow]:
-        cycle_length += 1
-        curr = nums[curr]
-
-    pointer1 = nums[0]
-    pointer2 = nums[0]
-
-    while cycle_length > 0:
-        pointer2 = nums[pointer2]
-        cycle_length -= 1
-
-    while pointer1 != pointer2:
-        pointer1 = nums[pointer1]
-        pointer2 = nums[pointer2]
-
-    return pointer1
-
+    pass

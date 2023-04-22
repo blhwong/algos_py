@@ -26,44 +26,10 @@ Output: -1
 Explanation: The key is not present in the array.
 """
 
-import math
-
 
 class ArrayReader:
     def __init__(self, arr):
-        self.arr = arr
-
-    def get(self, index):
-        if index >= len(self.arr):
-            return math.inf
-        return self.arr[index]
-
+        pass
 
 def search_in_infinite_array(reader, key):
-    def search(low, high):
-        while low <= high:
-            mid = (low + high) // 2
-
-            val = reader.get(mid)
-            if val == key:
-                return mid
-            elif val < key:
-                low = mid + 1
-            else:
-                high = mid - 1
-
-        return -1
-
-    def get_args():
-        start, end = 0, 1
-
-        while reader.get(end) < key:
-            new_start = end + 1
-            end = (end - start + 1) ** 2
-            start = new_start
-
-        return start, end
-
-    start, end = get_args()
-    return search(start, end)
-
+    pass

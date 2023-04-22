@@ -21,17 +21,4 @@ Explanation: Longest substrings without any repeating characters are "abc" & "cd
 
 
 def non_repeat_substring(str):
-    ans = 0
-    start = 0
-    tracker = {}
-
-    for end in range(len(str)):
-        letter = str[end]
-
-        if letter in tracker:
-            start = max(start, tracker[letter] + 1)
-
-        tracker[letter] = end
-        ans = max(ans, end - start + 1)
-
-    return ans
+    pass

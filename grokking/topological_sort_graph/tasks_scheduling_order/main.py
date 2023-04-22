@@ -23,28 +23,4 @@ Explanation: A possible scheduling of tasks is: [0 1 4 3 2 5]
 from collections import deque
 
 def find_order(tasks, prerequisites):
-    sorted_order = []
-    adjacency_list = {v: [] for v in range(tasks)}
-    degree_list = {v: 0 for v in range(tasks)}
-
-    for v,e in prerequisites:
-        adjacency_list[v].append(e)
-        degree_list[e] += 1
-
-    sources = deque()
-    for v, degree in degree_list.items():
-        if degree == 0:
-            sources.append(v)
-
-    while sources:
-        v = sources.popleft()
-        sorted_order.append(v)
-
-        children = adjacency_list[v]
-        for child in children:
-            degree_list[child] -= 1
-            if degree_list[child] == 0:
-                sources.append(child)
-
-
-    return sorted_order if len(sorted_order) == tasks else []
+    pass

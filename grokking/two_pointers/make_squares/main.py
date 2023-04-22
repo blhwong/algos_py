@@ -14,22 +14,4 @@ Output: [0 1 1 4 9]
 
 
 def make_squares(arr):
-    squares = [0 for _ in arr]
-    left = 0
-    right = len(arr) - 1
-    highest = len(arr) - 1
-
-    while left < right:
-        l = arr[left] ** 2
-        r = arr[right] ** 2
-
-        if l > r:
-            squares[highest] = l
-            left += 1
-        else:
-            squares[highest] = r
-            right -=1
-
-        highest -= 1
-
-    return squares
+    pass

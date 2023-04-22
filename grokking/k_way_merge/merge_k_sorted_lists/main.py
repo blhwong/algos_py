@@ -16,26 +16,4 @@ from heapq import *
 
 
 def merge_lists(lists):
-    ans = None
-    min_heap = []
-    entry_count = 0
-
-    for root in lists:
-        heappush(min_heap, (root.val, entry_count, root))
-        entry_count += 1
-
-    head, tail = None, None
-
-    while min_heap:
-        val, count, curr = heappop(min_heap)
-        if curr.next:
-            heappush(min_heap, (curr.next.val, count, curr.next))
-
-        if not head:
-            head = curr
-            tail = curr
-        else:
-            tail.next = curr
-            tail = tail.next
-
-    return head
+    pass

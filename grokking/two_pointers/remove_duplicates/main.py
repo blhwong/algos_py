@@ -15,4 +15,9 @@ Explanation: The first two elements after removing the duplicates will be [2, 11
 """
 
 def remove_duplicates(arr):
-    pass
+    j = 1
+    for i in range(len(arr)):
+        if arr[i] != arr[j - 1]:
+            arr[j] = arr[i]
+            j += 1
+    return j

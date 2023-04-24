@@ -18,4 +18,15 @@ Explanation: The numbers at index 0 and 2 add up to 11: 2+9 = 11
 
 
 def pair_with_targetsum(arr, target_sum):
-    pass
+    start = 0
+    end = len(arr) - 1
+
+    while start < end:
+        if arr[start] + arr[end] == target_sum:
+            return [start, end]
+        elif arr[start] + arr[end] < target_sum:
+            start += 1
+        elif arr[start] + arr[end] > target_sum:
+            end -= 1
+
+    return [-1, -1]

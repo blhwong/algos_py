@@ -17,4 +17,40 @@ Explanation: There are four triplets whose sum is less than the target:
 
 
 def triplet_with_smaller_sum(arr, target):
-    pass
+    arr.sort()
+    ans = 0
+    for i in range(len(arr) - 2):
+        num = arr[i]
+        ans += find_pairs(arr, i + 1, target - num)
+    return ans
+
+def find_pairs(arr, i, target):
+    ans = 0
+    j = len(arr) - 1
+    while i < j:
+        if arr[i] + arr[j] < target:
+            ans += j - i
+            i += 1
+        else:
+            j -= 1
+
+    return ans
+
+def triplet_with_smaller_sum_results(arr, target):
+    arr.sort()
+    triplets = []
+    for i in range(len(arr) - 2):
+        num = arr[i]
+        find_pairs_results(arr, i, target - num, triplets)
+    return triplets
+
+def find_pairs_results(arr, first, target, triplets):
+    left = first + 1
+    right = len(arr) - 1
+    while left < right:
+        if arr[left] + arr[right] < target:
+            for i in range(right, left, -1):
+                triplets.append([arr[first], arr[left], arr[i]])
+            left += 1
+        else:
+            right -= 1

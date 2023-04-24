@@ -21,4 +21,23 @@ Explanation: The triplet[1, 1, 1] has the closest sum to the target.
 
 
 def triplet_sum_close_to_target(arr, target_sum):
-    pass
+    arr.sort()
+    ans = float('infinity')
+    for i in range(len(arr) - 2):
+        triplet = [arr[i]] + find_closest_pair(arr, i + 1, target_sum - arr[i])
+        if abs(target_sum - sum(triplet)) < abs(target_sum - ans):
+            ans = sum(triplet)
+    return ans
+
+def find_closest_pair(arr, i, target_sum):
+    pair = []
+    j = len(arr) - 1
+    while i < j:
+        pair = [arr[i], arr[j]]
+        if arr[i] + arr[j] == target_sum:
+            return [arr[i], arr[j]]
+        elif arr[i] + arr[j] < target_sum:
+            i += 1
+        else:
+            j -= 1
+    return pair

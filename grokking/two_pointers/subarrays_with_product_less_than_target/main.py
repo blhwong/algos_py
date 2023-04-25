@@ -17,4 +17,18 @@ Explanation: There are seven contiguous subarrays whose product is less than the
 from collections import deque
 
 def find_subarrays(arr, target):
-    pass
+    ans = []
+    product = 1
+    left = 0
+    for right in range(len(arr)):
+        product *= arr[right]
+        while left <= right and product >= target:
+            product /= arr[left]
+            left += 1
+
+        temp = deque()
+        for i in range(right, left - 1, -1):
+            temp.appendleft(arr[i])
+            ans.append(list(temp))
+
+    return ans

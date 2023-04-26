@@ -14,4 +14,19 @@ Output: false (12 is not a happy number)
 
 
 def find_happy_number(num):
-    pass
+    slow, fast = num, num
+
+    while fast != 1:
+        slow = calculate(slow)
+        fast = calculate(calculate(fast))
+        if slow == fast:
+            return False
+
+    return True
+
+
+def calculate(num):
+    ans = 0
+    for s in str(num):
+        ans += int(s) ** 2
+    return ans

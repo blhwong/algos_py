@@ -3,6 +3,9 @@ class Interval:
         self.start = start
         self.end = end
 
+    def __repr__(self):
+        return f'[{self.start}, {self.end}]'
+
     def print_interval(self):
         print('[' + str(self.start) + ', ' + str(self.end) + ']', end='')
 

@@ -20,4 +20,22 @@ from data_structures.interval import Interval
 
 
 def insert(intervals, new_interval):
-    pass
+    ans = []
+    i, start, end = 0, 0, 1
+
+    while i < len(intervals) and intervals[i][end] < new_interval[start]:
+        ans.append(intervals[i])
+        i += 1
+
+    while i < len(intervals) and intervals[i][start] <= new_interval[end]:
+        new_interval[start] = min(new_interval[start], intervals[i][start])
+        new_interval[end] = max(new_interval[end], intervals[i][end])
+        i += 1
+
+    ans.append(new_interval)
+
+    while i < len(intervals):
+        ans.append(intervals[i])
+        i += 1
+
+    return ans

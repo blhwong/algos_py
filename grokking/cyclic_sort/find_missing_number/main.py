@@ -14,4 +14,17 @@ Output: 7
 
 
 def find_missing_number(nums):
-    pass
+    i = 0
+    while i < len(nums):
+        j = nums[i]
+
+        if j < len(nums) and nums[i] != nums[j]:
+            nums[i], nums[j] = nums[j], nums[i]
+        else:
+            i += 1
+
+    for i, num in enumerate(nums):
+        if i != num:
+            return i
+
+    return len(nums)

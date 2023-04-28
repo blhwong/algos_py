@@ -18,8 +18,40 @@ Output: 4
 
 
 def find_duplicate(nums):
-    pass
+    i = 0
+    while i < len(nums):
+        if nums[i] != i + 1:
+            j = nums[i] - 1
+
+            if nums[i] != nums[j]:
+                nums[i], nums[j] = nums[j], nums[i]
+            else:
+                return nums[i]
+        else:
+            i += 1
 
 
 def find_duplicate_cycle(nums):
-    pass
+    slow, fast = nums[0], nums[nums[0]]
+
+    while fast != slow:
+        slow = nums[slow]
+        fast = nums[nums[fast]]
+
+    length = 1
+    slow = nums[slow]
+
+    while fast != slow:
+        length += 1
+        slow = nums[slow]
+
+    slow, fast = nums[0], nums[0]
+
+    for _ in range(length):
+        fast = nums[fast]
+
+    while fast != slow:
+        slow = nums[slow]
+        fast = nums[fast]
+
+    return slow

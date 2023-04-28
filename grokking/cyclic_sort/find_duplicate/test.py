@@ -1,21 +1,20 @@
-from unittest import TestCase, main
 from grokking.cyclic_sort.find_duplicate.main import find_duplicate, find_duplicate_cycle
 
 
-class TestSuite(TestCase):
-    def test_1(self):
-        self.assertEqual(find_duplicate([1, 4, 4, 3, 2]), 4)
-        self.assertEqual(find_duplicate_cycle([1, 4, 4, 3, 2]), 4)
+def test_1():
+    assert find_duplicate([1, 4, 4, 3, 2]) == 4
 
-    def test_2(self):
-        self.assertEqual(find_duplicate([2, 1, 3, 3, 5, 4]), 3)
-        self.assertEqual(find_duplicate_cycle([2, 1, 3, 3, 5, 4]), 3)
+def test_2():
+    assert find_duplicate([2, 1, 3, 3, 5, 4]) == 3
 
-    def test_3(self):
-        self.assertEqual(find_duplicate([2, 4, 1, 4, 4]), 4)
-        self.assertEqual(find_duplicate_cycle([2, 4, 1, 4, 4]), 4)
+def test_3():
+    assert find_duplicate([2, 4, 1, 4, 4]) == 4
 
+def test_4():
+    assert find_duplicate_cycle([1, 4, 4, 3, 2]) == 4
 
-if __name__ == '__main__':
+def test_5():
+    assert find_duplicate_cycle([2, 1, 3, 3, 5, 4]) == 3
 
-    main()
+def test_6():
+    assert find_duplicate_cycle([2, 4, 1, 4, 4]) == 4

@@ -33,7 +33,7 @@ def length_of_longest_substring(str1, k):
         curr_max = max(curr_max, char_map[str1[end]])
 
         if end - start + 1 - curr_max > k:
-            char_map[str1[start]] -= 0
+            char_map[str1[start]] -= 1
             start += 1
 
         ans = max(ans, end - start + 1)

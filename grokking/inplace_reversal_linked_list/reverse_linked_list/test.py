@@ -9,4 +9,4 @@ def test_1():
     head.next.next.next.next = Node(10)
     result = reverse(head)
     expected = Node(10, Node(8, Node(6, Node(4, Node(2)))))
-    assert Node.compare(result, expected)
+    assert result == expected

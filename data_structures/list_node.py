@@ -4,6 +4,9 @@ class ListNode:
         self.value = val
         self.next = next
 
+    def __eq__(self, node):
+        return self.val == node.val and self.value == node.value and self.next == node.next
+
     def __repr__(self):
         curr = self
 
@@ -14,19 +17,3 @@ class ListNode:
 
 
         return '->'.join(storage)
-
-    @staticmethod
-    def compare(list1, list2):
-        l1 = []
-        l2 = []
-        curr1 = list1
-        while curr1:
-            l1.append(curr1.val)
-            curr1 = curr1.next
-
-        curr2 = list2
-        while curr2:
-            l2.append(curr2.val)
-            curr2 = curr2.next
-        return l1 == l2
-

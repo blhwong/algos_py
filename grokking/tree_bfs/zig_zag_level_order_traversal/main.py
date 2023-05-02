@@ -6,4 +6,26 @@ Given a binary tree, populate an array to represent its zigzag level order trave
 from collections import deque
 
 def traverse(root):
-    pass
+    ans = []
+    q = deque()
+    q.append(root)
+    i = 0
+    while q:
+        level_size = len(q)
+        curr_level = deque()
+        for _ in range(level_size):
+            curr = q.popleft()
+            if i % 2 == 0:
+                curr_level.append(curr.val)
+            else:
+                curr_level.appendleft(curr.val)
+
+            if curr.left is not None:
+                q.append(curr.left)
+            if curr.right is not None:
+                q.append(curr.right)
+
+        ans.append(list(curr_level))
+        i += 1
+
+    return ans

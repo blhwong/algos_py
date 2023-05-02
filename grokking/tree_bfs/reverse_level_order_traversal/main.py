@@ -6,4 +6,20 @@ Given a binary tree, populate an array to represent its level-by-level traversal
 from collections import deque
 
 def traverse(root):
-    pass
+    ans = deque()
+    q = deque()
+    q.append(root)
+    while q:
+        level_size = len(q)
+        curr_level = []
+        for _ in range(level_size):
+            curr = q.popleft()
+            curr_level.append(curr.val)
+            if curr.left is not None:
+                q.append(curr.left)
+            if curr.right is not None:
+                q.append(curr.right)
+
+        ans.appendleft(curr_level)
+
+    return list(ans)

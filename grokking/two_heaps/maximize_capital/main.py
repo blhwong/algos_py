@@ -45,7 +45,4 @@ def find_maximum_capital(capital, profits, number_of_projects, initial_capital):
 
         ans += -max_heap[0][0]
 
-
     return ans
-
-

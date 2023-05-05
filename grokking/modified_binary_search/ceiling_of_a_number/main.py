@@ -28,7 +28,37 @@ Explanation: The smallest number greater than or equal to '-1' is '4' having ind
 
 
 def search_ceiling_of_a_number(arr, key):
-    pass
+    ceiling_number = float('infinity')
+    ceiling_index = -1
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == key:
+            return mid
+        if key < arr[mid] < ceiling_number:
+            ceiling_number = arr[mid]
+            ceiling_index = mid
+        if arr[mid] < key:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return ceiling_index
 
 def search_floor_of_a_number(arr, key):
-    pass
+    floor_number = -float('infinity')
+    floor_index = -1
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == key:
+            return mid
+        if floor_number < arr[mid] < key:
+            floor_number = arr[mid]
+            floor_index = mid
+        if arr[mid] < key:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return floor_index

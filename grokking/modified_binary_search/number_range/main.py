@@ -20,4 +20,26 @@ Output: [-1, -1]
 
 
 def find_range(arr, key):
-    pass
+    left = find(arr, key, True)
+    right = find(arr, key, False)
+
+    return [left, right]
+
+
+def find(arr, key, is_find_min_index):
+    left, right = 0, len(arr) - 1
+    ans = -1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == key:
+            ans = mid
+            if is_find_min_index:
+                right = mid - 1
+            else:
+                left = mid + 1
+        elif arr[mid] < key:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return ans

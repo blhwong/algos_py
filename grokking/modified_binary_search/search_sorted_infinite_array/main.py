@@ -27,9 +27,34 @@ Explanation: The key is not present in the array.
 """
 
 
+# Do not modify ArrayReader
+import math
+
 class ArrayReader:
+
     def __init__(self, arr):
-        pass
+        self.arr = arr
+
+    def get(self, index):
+        if index >= len(self.arr):
+            return math.inf
+        return self.arr[index]
+
+# Do not modify above this line
 
 def search_in_infinite_array(reader, key):
-    pass
+    left, right = 0, 1
+    while reader.get(right) < key:
+        # You can choose to update left if you want but it doesn't really matter
+        right *= 2
+
+    while left <= right:
+        mid = (left + right) // 2
+        if reader.get(mid) == key:
+            return mid
+        if reader.get(mid) < key:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1

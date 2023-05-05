@@ -23,4 +23,22 @@ Output: 10
 
 
 def search_min_diff_element(arr, key):
-    pass
+    left, right = 0, len(arr) - 1
+
+    ans = arr[0]
+    diff = abs(arr[0] - key)
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if arr[mid] == key:
+            return key
+        if abs(arr[mid] - key) < diff:
+            diff = abs(arr[mid] - key)
+            ans = arr[mid]
+        if arr[mid] < key:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return ans

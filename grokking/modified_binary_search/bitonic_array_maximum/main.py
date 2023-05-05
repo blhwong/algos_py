@@ -23,4 +23,14 @@ Output: 10
 
 
 def find_max_in_bitonic_array(arr):
-    pass
+    left, right = 0, len(arr) - 1
+    ans = -float('infinity')
+    while left <= right:
+        mid = (left + right) // 2
+        ans = max(ans, arr[mid])
+        if mid < len(arr) - 1 and arr[mid] < arr[mid + 1]:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return ans

@@ -23,35 +23,26 @@ def generate_generalized_abbreviation(word):
     q.append(('', 0, 0))
     while q:
         curr, start, count = q.popleft()
-        if len(word) == start:
-            c = ''
-            if count != 0:
-                c = str(count)
+        c = ''
+        if count != 0:
+            c = str(count)
+        if start == len(word):
             ans.append(f'{curr}{c}')
         else:
             q.append((curr, start + 1, count + 1)) # We abbreviate
-            c = ''
-            if count != 0:
-                c = str(count)
             q.append((f'{curr}{c}{word[start]}', start + 1, 0)) # We don't abbreviate
-
     return ans
 
 def generate_generalized_abbreviation_recursive(word):
     return recurse(word, '', 0, 0, [])
 
 def recurse(word, curr, start, count, ans):
-    if len(word) == start:
-        c = ''
-        if count != 0:
-            c = str(count)
-        ans.append(f'{curr}{c}')
-        return
-
-    recurse(word, curr, start + 1, count + 1, ans) # We abbreviate
     c = ''
     if count != 0:
         c = str(count)
+    if start == len(word):
+        ans.append(f'{curr}{c}')
+        return
+    recurse(word, curr, start + 1, count + 1, ans) # We abbreviate
     recurse(word, f'{curr}{c}{word[start]}', start + 1, 0, ans) # We don't abbreviate
-
     return ans

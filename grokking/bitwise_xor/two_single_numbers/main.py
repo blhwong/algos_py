@@ -14,4 +14,21 @@ Output: [1, 3]
 
 
 def find_single_numbers(nums):
-    pass
+    n1_xor_n2 = 0
+    for num in nums:
+        n1_xor_n2 ^= num
+
+    right_most_bit_set = 1
+    while (right_most_bit_set & n1_xor_n2) == 0:
+        right_most_bit_set <<= 1
+
+    n1, n2 = 0, 0
+
+    for num in nums:
+        is_set = num & right_most_bit_set
+        if is_set:
+            n1 ^= num
+        else:
+            n2 ^= num
+
+    return [n1, n2]

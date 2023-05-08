@@ -18,4 +18,13 @@ from heapq import *
 
 
 def find_k_largest_numbers(nums, k):
-    pass
+    min_heap = []
+
+    for i in range(k):
+        heappush(min_heap, nums[i])
+
+    for i in range(k, len(nums)):
+        if nums[i] > min_heap[0]:
+            heappushpop(min_heap, nums[i])
+
+    return min_heap

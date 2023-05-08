@@ -14,4 +14,8 @@ Output: 9
 
 
 def find_single_number(arr):
-    pass
+    ans = 0
+    for i in range(len(arr)):
+        ans ^= arr[i]
+
+    return ans

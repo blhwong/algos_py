@@ -43,4 +43,16 @@ class Point:
 
 
 def find_closest_points(points, k):
-    pass
+    max_heap = []
+    for i in range(k):
+        point = points[i]
+        distance = (point.x ** 2 + point.y ** 2) ** 0.5
+        heappush(max_heap, (-distance, point))
+
+    for i in range(k, len(points)):
+        point = points[i]
+        distance = (point.x ** 2 + point.y ** 2) ** 0.5
+        if distance < -max_heap[0][0]:
+            heappushpop(max_heap, (-distance, point))
+
+    return [i[1] for i in max_heap]

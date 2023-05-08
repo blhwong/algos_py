@@ -18,7 +18,17 @@ from heapq import *
 
 class KthLargestNumberInStream:
     def __init__(self, nums, k):
-        pass
+        self.min_heap = []
+
+        for i in range(k):
+            heappush(self.min_heap, nums[i])
+
+        for i in range(k, len(nums)):
+            if nums[i] > self.min_heap[0]:
+                heappushpop(self.min_heap, nums[i])
+
 
     def add(self, num):
-        pass
+        if num > self.min_heap[0]:
+            heappushpop(self.min_heap, num)
+        return self.min_heap[0]

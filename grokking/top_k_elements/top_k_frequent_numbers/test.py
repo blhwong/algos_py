@@ -1,13 +1,17 @@
-from unittest import TestCase, main
 from grokking.top_k_elements.top_k_frequent_numbers.main import find_k_frequent_numbers
 
 
-class TestSuite(TestCase):
-    def test_1(self):
-        self.assertCountEqual(find_k_frequent_numbers([1, 3, 5, 12, 11, 12, 11], 2), [12, 11])
 
-    def test_2(self):
-        self.assertCountEqual(find_k_frequent_numbers([5, 12, 11, 3, 11], 2), [11, 3])
+def test_1():
+    k = 2
+    ans = find_k_frequent_numbers([1, 3, 5, 12, 11, 12, 11], k)
+    assert len(ans) == k
+    assert 11 in ans
+    assert 12 in ans
 
-if __name__ == '__main__':
-    main()
+def test_2():
+    k = 2
+    ans = find_k_frequent_numbers([5, 12, 11, 3, 11], k)
+    assert len(ans) == k
+    assert 11 in ans
+    assert 3 in ans or 12 in ans or 5 in ans # All of these are valid

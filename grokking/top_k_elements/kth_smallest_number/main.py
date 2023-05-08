@@ -26,4 +26,13 @@ Explanation: The 3rd smallest number is '11', as the first two small numbers are
 from heapq import *
 
 def find_Kth_smallest_number(nums, k):
-    pass
+    max_heap = []
+
+    for i in range(k):
+        heappush(max_heap, -nums[i])
+
+    for i in range(k, len(nums)):
+        if nums[i] < -max_heap[0]:
+            heappushpop(max_heap, -nums[i])
+
+    return -max_heap[0]

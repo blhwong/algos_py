@@ -18,4 +18,18 @@ from heapq import *
 
 
 def find_k_frequent_numbers(nums, k):
-    pass
+    frequency_map = {}
+    for num in nums:
+        if num not in frequency_map:
+            frequency_map[num] = 0
+        frequency_map[num] += 1
+
+    min_heap = []
+
+    for num, freq in frequency_map.items():
+        if len(min_heap) < k:
+            heappush(min_heap, (freq, num))
+        elif freq > min_heap[0][0]:
+            heappushpop(min_heap, (freq, num))
+
+    return [num for _, num in min_heap]

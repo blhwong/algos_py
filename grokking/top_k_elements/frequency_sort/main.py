@@ -17,4 +17,21 @@ Explanation: 'b' appeared three times, 'a' appeared twice, and 'c' appeared only
 from heapq import *
 
 def sort_character_by_frequency(str):
-    pass
+    ans = ''
+
+    max_heap = []
+    freq_map = {}
+
+    for char in str:
+        if char not in freq_map:
+            freq_map[char] = 0
+        freq_map[char] += 1
+
+    for k, v in freq_map.items():
+        heappush(max_heap, (-v, k))
+
+    while max_heap:
+        freq, char = heappop(max_heap)
+        ans += char * -freq
+
+    return ans

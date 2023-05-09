@@ -19,4 +19,17 @@ number (8) is 12 (5+7).
 from heapq import *
 
 def find_sum_of_elements(nums, k1, k2):
-    pass
+    max_heap = []
+
+    for i in range(k2 - 1):
+        heappush(max_heap, -nums[i])
+
+    for i in range(k2 - 1, len(nums)):
+        if nums[i] < -max_heap[0]:
+            heappushpop(max_heap, -nums[i])
+
+    ans = 0
+    for i in range(k2 - k1 - 1):
+        ans -= heappop(max_heap)
+
+    return ans

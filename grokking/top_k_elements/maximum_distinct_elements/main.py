@@ -26,4 +26,25 @@ Explanation: We can remove one occurrence of '4' to get three distinct numbers.
 from heapq import *
 
 def find_maximum_distinct_elements(nums, k):
-    pass
+    min_heap = []
+    num_freq = {}
+    for num in nums:
+        if num not in num_freq:
+            num_freq[num] = 0
+        num_freq[num] += 1
+    for num, freq in num_freq.items():
+        heappush(min_heap, (freq, num))
+
+    ans = 0
+    removals = 0
+
+    while len(min_heap) > 0 and removals < k:
+        freq, num = heappop(min_heap)
+        if freq == 1:
+            ans += 1
+        else:
+            removals += 1
+            if freq > 1:
+                heappush(min_heap, (freq - 1, num))
+
+    return ans - (k - removals)

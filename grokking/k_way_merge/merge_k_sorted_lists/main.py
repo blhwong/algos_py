@@ -16,4 +16,23 @@ from heapq import *
 
 
 def merge_lists(lists):
-    pass
+    min_heap = []
+    count = 0
+    for i in range(len(lists)):
+        heappush(min_heap, (lists[i].value, count, lists[i]))
+        count += 1
+
+    prev = None
+    head = None
+    while len(min_heap) > 0:
+        _, _, curr = heappop(min_heap)
+        if curr.next is not None:
+            heappush(min_heap, (curr.next.value, count, curr.next))
+            count += 1
+        if head is None:
+            head = curr
+        if prev is not None:
+            prev.next = curr
+        prev = curr
+
+    return head

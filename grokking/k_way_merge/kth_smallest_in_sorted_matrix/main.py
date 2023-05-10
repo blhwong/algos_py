@@ -18,4 +18,19 @@ from heapq import *
 
 
 def find_Kth_smallest(matrix, k):
-    pass
+    min_heap = []
+    for i in range(len(matrix)):
+        heappush(min_heap, (matrix[i][0], 0, matrix[i]))
+
+    count = 1
+    while len(min_heap) > 0:
+        val, curr_idx, l = heappop(min_heap)
+        if count == k:
+            return val
+
+        count += 1
+        next_idx = curr_idx + 1
+        if next_idx < len(l):
+            heappush(min_heap, (l[next_idx], next_idx, l))
+
+    return -1

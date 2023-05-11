@@ -23,4 +23,28 @@ Explanation: A possible sceduling of tasks is: [0 1 4 3 2 5]
 from collections import deque
 
 def is_scheduling_possible(tasks, prerequisites):
-    pass
+    graph = { v: [] for v in range(tasks) }
+    degree_list = { v: 0 for v in range(tasks) }
+
+    for u, v in prerequisites:
+        graph[u].append(v)
+        degree_list[v] += 1
+
+    q = deque()
+
+    for v, degree in degree_list.items():
+        if degree == 0:
+            q.append(v)
+
+    count = 0
+
+    while q:
+        v = q.popleft()
+        count += 1
+        children = graph[v]
+        for child in children:
+            degree_list[child] -= 1
+            if degree_list[child] == 0:
+                q.append(child)
+
+    return count == tasks

@@ -33,5 +33,37 @@ Output:
 13) [1, 3, 2, 0, 4, 5]
 """
 
+
+def get_order(ans, curr_results, curr_sources, graph, curr_degree_list):
+    if len(curr_sources) == 0:
+        ans.append(curr_results)
+    for v in curr_sources:
+        new_results = curr_results + [v]
+        new_sources = curr_sources.copy()
+        new_degree_list = curr_degree_list.copy()
+        new_sources.remove(v)
+
+        for child in graph[v]:
+            new_degree_list[child] -= 1
+            if new_degree_list[child] == 0:
+                new_sources.add(child)
+
+        get_order(ans, new_results, new_sources, graph, new_degree_list)
+
+
 def get_all_orders(tasks, prerequisites):
-    pass
+    graph = { v: [] for v in range(tasks) }
+    degree_list = { v: 0 for v in range(tasks) }
+
+    for u, v in prerequisites:
+        graph[u].append(v)
+        degree_list[v] += 1
+
+    ans = []
+    sources = set()
+
+    for v, degree in degree_list.items():
+        if degree == 0:
+            sources.add(v)
+    get_order(ans, [], sources, graph, degree_list)
+    return ans

@@ -41,4 +41,41 @@ From the above five points, we can conclude that the correct character order is:
 from collections import deque
 
 def find_order(words):
-    pass
+    graph = {}
+    degree_list = {}
+    for word in words:
+        for char in word:
+            graph[char] = []
+            degree_list[char] = 0
+
+
+    for i in range(len(words) - 1):
+        w1, w2 = words[i], words[i + 1]
+        for j in range(min(len(w1), len(w2))):
+            parent, child = w1[j], w2[j]
+            if parent != child:
+                graph[parent].append(child)
+                degree_list[child] += 1
+                break
+
+    q = deque()
+
+    for v, degree in degree_list.items():
+        if degree == 0:
+            q.append(v)
+
+    ans = ''
+
+    while q:
+        v = q.popleft()
+        ans += v
+        children = graph[v]
+        for child in children:
+            degree_list[child] -= 1
+            if degree_list[child] == 0:
+                q.append(child)
+
+    return ans
+
+
+

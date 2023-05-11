@@ -33,8 +33,5 @@ Output:
 13) [1, 3, 2, 0, 4, 5]
 """
 
-def get_order(results, curr_order, curr_source, adjacency_list, curr_degree_list):
-    pass
-
 def get_all_orders(tasks, prerequisites):
     pass

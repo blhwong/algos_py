@@ -23,7 +23,40 @@ Given two integer arrays to represent weights and profits of ‘N’ items, we n
 """
 
 def solve_knapsack_recursive(profits, weights, capacity):
-    pass
+    memo = [[-1] * len(weights) for _ in range(capacity + 1)]
+    return recurse(profits, weights, capacity, 0, memo)
+
+
+def recurse(profits, weights, curr_capacity, curr_idx, memo):
+    if curr_idx >= len(weights) or curr_capacity < 0:
+        return 0
+    if memo[curr_capacity][curr_idx] > -1:
+        return memo[curr_capacity][curr_idx]
+
+    p1 = 0
+    if weights[curr_idx] <= curr_capacity:
+        new_weight = curr_capacity - weights[curr_idx]
+        p1 = profits[curr_idx] + recurse(profits, weights, new_weight, curr_idx + 1, memo)
+    p2 = recurse(profits, weights, curr_capacity, curr_idx + 1, memo)
+
+    memo[curr_capacity][curr_idx] = max(p1, p2)
+
+    return memo[curr_capacity][curr_idx]
+
 
 def solve_knapsack_iterative(profits, weights, capacity):
-    pass
+    dp = [[0] * (capacity + 1) for _ in range(len(weights))]
+
+    for c in range(capacity + 1):
+        if weights[0] <= c:
+            dp[0][c] = profits[0]
+
+    for i in range(1, len(weights)):
+        for c in range(1, capacity + 1):
+            p1 = 0
+            if weights[i] <= c:
+                p1 = profits[i] + dp[i - 1][c - weights[i]]
+            p2 = dp[i - 1][c]
+            dp[i][c] = max(p1, p2)
+
+    return dp[-1][capacity]

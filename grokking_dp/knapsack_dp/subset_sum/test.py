@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from grokking.knapsack_dp.subset_sum.main import has_sum
+from grokking_dp.knapsack_dp.subset_sum.main import has_sum
 
 
 class TestSuite(TestCase):

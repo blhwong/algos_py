@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from grokking.knapsack_dp.minimum_subset_sum_difference.main import get_minimum_subset_difference_iterative, get_minimum_subset_difference_recursive
+from grokking_dp.knapsack_dp.minimum_subset_sum_difference.main import get_minimum_subset_difference_iterative, get_minimum_subset_difference_recursive
 
 
 class TestSuite(TestCase):

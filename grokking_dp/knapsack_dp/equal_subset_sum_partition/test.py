@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from grokking.knapsack_dp.equal_subset_sum_partition.main import can_partition_recursive, can_partition_iterative
+from grokking_dp.knapsack_dp.equal_subset_sum_partition.main import can_partition_recursive, can_partition_iterative
 
 
 class TestSuite(TestCase):

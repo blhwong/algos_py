@@ -14,13 +14,23 @@ Example 3: #
 Input: {1, 3, 4, 8}, S=6
 Output: False
 The given set does not have any subset whose sum is equal to '6'.
-
-    0  1  2  3  4  5  6
-1 0 F  T  F  F  F  F  F
-2 1
-3 2
-7 3
 """
 
 def has_sum(nums, s):
-    pass
+    dp = [[None] * (s + 1) for _ in range(len(nums))]
+
+    for i in range(len(nums)):
+        dp[i][0] = True
+
+    for j in range(1, s + 1):
+        dp[0][j] = nums[0] == j
+
+    for i in range(1, len(nums)):
+        for j in range(1, s + 1):
+            ans1 = False
+            if nums[i] <= j:
+                ans1 = dp[i - 1][j - nums[i]]
+            ans2 = dp[i - 1][j]
+            dp[i][j] = ans1 or ans2
+
+    return dp[-1][s]

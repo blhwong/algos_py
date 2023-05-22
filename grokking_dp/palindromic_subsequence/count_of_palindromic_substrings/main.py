@@ -38,10 +38,6 @@ def count_palindromic_substrings_iterative(s):
     return ans
 
 
-def count_palindromic_substrings_recursive(s):
-    pass
-
-
 def count_palindromic_substrings(s):
     ans = 0
     for i in range(len(s)):

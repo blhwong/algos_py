@@ -16,20 +16,17 @@ Explanation: The LIS is {-4,3,7,15}.
 
 
 def find_lis_length(nums):
-    dp = [[0] * len(nums) for _ in range(len(nums))]
+    dp = [[0] * (len(nums) + 1) for _ in range(len(nums) + 1)]
 
-    for j in range(len(nums)):
-        dp[0][j] = 1
-
-    for prev in range(len(nums)):
-        for curr in range(prev + 1, len(nums)):
+    for curr in range(len(nums) - 1, -1, -1):
+        for prev in range(curr - 1, -2, -1):
             c1 = 0
-            if nums[curr] > nums[prev]:
-                c1 = 1 + dp[prev][prev]
-            c2 = dp[prev][curr]
-            dp[prev + 1][curr] = max(c1, c2)
+            if prev == -1 or nums[prev] < nums[curr]:
+                c1 = 1 + dp[curr + 1][curr + 1]
+            c2 = dp[curr + 1][prev + 1]
+            dp[curr][prev + 1] = max(c1, c2)
 
-    return dp[-1][-1]
+    return dp[0][0]
 
 
 def find_lis_length_recursive(nums):

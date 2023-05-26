@@ -23,17 +23,14 @@ sorted sequence. Sorted sequences are {3}, {2}, {1}, and {0}
 
 
 def find_minimum_deletions(nums):
-    dp = [[0] * (len(nums)) for _ in range(len(nums))]
+    dp = [[0] * (len(nums) + 1) for _ in range(len(nums) + 1)]
 
-    for j in range(len(nums)):
-        dp[0][j] = 1
-
-    for i in range(1, len(nums) + 1):
-        for j in range(i, len(nums)):
+    for curr in range(len(nums) - 1, -1, -1):
+        for prev in range(curr - 1, -2, -1):
             c1 = 0
-            if nums[j] > nums[i - 1]:
-                c1 = 1 + dp[i - 1][i - 1]
-            c2 = dp[i - 1][j]
-            dp[i][j] = max(c1, c2)
+            if prev == -1 or nums[curr] > nums[prev]:
+                c1 = 1 + dp[curr + 1][curr + 1]
+            c2 = dp[curr + 1][prev + 1]
+            dp[curr][prev + 1] = max(c1, c2)
 
-    return len(nums) - dp[-1][-1]
+    return len(nums) - dp[0][0]

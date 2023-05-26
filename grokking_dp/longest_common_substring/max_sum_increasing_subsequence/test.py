@@ -15,3 +15,11 @@ def test_3():
 
 def test_4():
     assert find_msis_iterative([-4, 10, 3, 7, 15]) == 25
+
+
+def test_5():
+    assert find_msis_recursive([4, 2, 5, 9, 7, 6, 10, 3, 1]) == 28
+
+
+def test_6():
+    assert find_msis_iterative([4, 2, 5, 9, 7, 6, 10, 3, 1]) == 28

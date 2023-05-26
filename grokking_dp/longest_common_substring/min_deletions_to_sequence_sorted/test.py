@@ -11,3 +11,7 @@ def test_2():
 
 def test_3():
     assert find_minimum_deletions([3, 2, 1, 0]) == 3
+
+
+def test_4():
+    assert find_minimum_deletions([4, 2, 5, 9, 7, 6, 10, 3, 1]) == 5

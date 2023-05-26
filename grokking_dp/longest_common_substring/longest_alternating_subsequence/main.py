@@ -24,4 +24,26 @@ Explanation: The LAS is {1,3,2,4}.
 
 
 def find_las_length(nums):
-    pass
+    dp1 = [[-1] * len(nums) for _ in range(len(nums))]
+    dp2 = [[-1] * len(nums) for _ in range(len(nums))]
+    return max(recurse(nums, -1, 0, True, dp1), recurse(nums, -1, 0, False, dp2))
+
+
+def recurse(nums, prev, curr, is_asc, dp):
+    if curr >= len(nums):
+        return 0
+    if dp[prev][curr] > -1:
+        return dp[prev][curr]
+    c1 = 0
+
+    if is_asc:
+        if prev == -1 or nums[prev] < nums[curr]:
+            c1 = 1 + recurse(nums, curr, curr + 1, not is_asc, dp)
+    else:
+        if prev == -1 or nums[prev] > nums[curr]:
+            c1 = 1 + recurse(nums, curr, curr + 1, not is_asc, dp)
+
+    c2 = recurse(nums, prev, curr + 1, is_asc, dp)
+
+    dp[prev][curr] = max(c1, c2)
+    return max(c1, c2)

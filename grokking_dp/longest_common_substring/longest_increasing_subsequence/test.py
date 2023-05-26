@@ -31,3 +31,11 @@ def test_7():
 
 def test_8():
     assert find_lis_length_recursive([2, 3, 1, 2, 3, 2, 3]) == 3
+
+
+def test_9():
+    assert find_lis_length_recursive([4, 2, 5, 9, 7, 6, 10, 3, 1]) == 4
+
+
+def test_10():
+    assert find_lis_length([4, 2, 5, 9, 7, 6, 10, 3, 1]) == 4

@@ -26,4 +26,26 @@ Explanation: 'p' contains all the letters from 'm' and 'n' and preserves their o
 
 
 def find_si(m, n, p):
-    pass
+    dp = [[[None] * (len(p) + 1) for _ in range(len(n) + 1)] for _ in range(len(m) + 1)]
+    return recurse(m, n, p, 0, 0, 0, dp)
+
+
+def recurse(m, n, p, i, j, k, dp):
+    if k >= len(p) and j >= len(n) and i >= len(m):
+        return True
+
+    if k >= len(p):
+        return False
+
+    if dp[i][j][k] is not None:
+        return dp[i][j][k]
+
+    c1, c2 = False, False
+    if i < len(m) and m[i] == p[k]:
+        c1 = recurse(m, n, p, i + 1, j, k + 1, dp)
+    if j < len(n) and n[j] == p[k]:
+        c2 = recurse(m, n, p, i, j + 1, k + 1, dp)
+
+    dp[i][j][k] = c1 or c2
+
+    return dp[i][j][k]

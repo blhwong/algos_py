@@ -11,3 +11,7 @@ def test_2():
 
 def test_3():
     assert find_si("abcdef", "mnop", "mnaobcdepf")
+
+
+def test_4():
+    assert find_si("aabcc", "dbbca", "aadbbcbcac")

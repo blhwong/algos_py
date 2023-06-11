@@ -1,19 +1,19 @@
-from unittest import TestCase, main
 from leet.search_rotated_array.main import Solution
 
 s = Solution()
 
-class TestSuite(TestCase):
-    def test_1(self):
-        self.assertEqual(s.search([4, 5, 6, 7, 0, 1, 2], 0), 4)
+
+def test_1():
+    assert s.search([4, 5, 6, 7, 0, 1, 2], 0) == 4
 
 
-    def test_2(self):
-        self.assertEqual(s.search([4, 5, 6, 7, 0, 1, 2], 3), -1)
-
-    def test_3(self):
-        self.assertEqual(s.search([0, 1, 2, 3, 4, 5, 6], 5), 5)
+def test_2():
+    assert s.search([4, 5, 6, 7, 0, 1, 2], 3) == -1
 
 
-if __name__ == '__main__':
-    main()
+def test_3():
+    assert s.search([0, 1, 2, 3, 4, 5, 6], 5) == 5
+
+
+def test_4():
+    assert s.search([3, 5, 1], 3) == 0

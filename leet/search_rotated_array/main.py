@@ -9,7 +9,7 @@ class Solution:
             if nums[mid] == target:
                 return mid
 
-            if nums[mid] < nums[right]:
+            if nums[mid] < right:
                 if nums[mid] < target <= nums[right]:
                     left = mid + 1
                 else:
